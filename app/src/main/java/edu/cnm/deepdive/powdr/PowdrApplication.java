@@ -11,6 +11,5 @@ public class PowdrApplication extends Application {
     super.onCreate();
     Stetho.initializeWithDefaults(this);
     GoogleSignInService.setContext(this);
-
   }
 }

@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.powdr.ui.wall;
+package edu.cnm.deepdive.powdr.controller;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,21 +9,21 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-
 import androidx.lifecycle.ViewModelProvider;
 import edu.cnm.deepdive.powdr.R;
+import edu.cnm.deepdive.powdr.viewmodel.ProfileViewModel;
 
-public class WallFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
-  private WallViewModel wallViewModel;
+  private ProfileViewModel profileViewModel;
 
   public View onCreateView(@NonNull LayoutInflater inflater,
       ViewGroup container, Bundle savedInstanceState) {
-    wallViewModel =
-        new ViewModelProvider(this).get(WallViewModel.class);
-    View root = inflater.inflate(R.layout.fragment_wall, container, false);
-    final TextView textView = root.findViewById(R.id.text_home);
-    wallViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+    profileViewModel =
+        new ViewModelProvider(this).get(ProfileViewModel.class);
+    View root = inflater.inflate(R.layout.fragment_notifications, container, false);
+    final TextView textView = root.findViewById(R.id.text_notifications);
+    profileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
       @Override
       public void onChanged(@Nullable String s) {
         textView.setText(s);

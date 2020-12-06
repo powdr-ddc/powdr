@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.powdr.ui.profile;
+package edu.cnm.deepdive.powdr.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

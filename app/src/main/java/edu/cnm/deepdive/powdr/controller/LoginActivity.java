@@ -7,7 +7,6 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import edu.cnm.deepdive.powdr.NavigationActivity;
 import edu.cnm.deepdive.powdr.R;
 import edu.cnm.deepdive.powdr.databinding.ActivityLoginBinding;
 import edu.cnm.deepdive.powdr.service.GoogleSignInService;

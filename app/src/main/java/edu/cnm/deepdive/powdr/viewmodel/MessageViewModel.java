@@ -1,16 +1,16 @@
-package edu.cnm.deepdive.powdr.ui.wall;
+package edu.cnm.deepdive.powdr.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class WallViewModel extends ViewModel {
+public class MessageViewModel extends ViewModel {
 
   private MutableLiveData<String> mText;
 
-  public WallViewModel() {
+  public MessageViewModel() {
     mText = new MutableLiveData<>();
-    mText.setValue("This is home fragment");
+    mText.setValue("This is dashboard fragment");
   }
 
   public LiveData<String> getText() {

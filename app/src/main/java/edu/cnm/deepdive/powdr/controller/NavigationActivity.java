@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.powdr;
+package edu.cnm.deepdive.powdr.controller;
 
 import android.content.Intent;
 import android.os.Bundle;

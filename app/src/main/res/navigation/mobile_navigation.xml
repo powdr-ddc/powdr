@@ -8,19 +8,19 @@
   <fragment
     android:id="@+id/navigation_wall"
     android:label="@string/title_wall"
-    android:name="edu.cnm.deepdive.powdr.ui.wall.WallFragment"
+    android:name="edu.cnm.deepdive.powdr.controller.WallFragment"
     tools:layout="@layout/fragment_wall"/>
 
   <fragment
     android:id="@+id/navigation_message"
     android:label="@string/title_message"
-    android:name="edu.cnm.deepdive.powdr.ui.message.MessageFragment"
+    android:name="edu.cnm.deepdive.powdr.controller.MessageFragment"
     tools:layout="@layout/fragment_message"/>
 
   <fragment
     android:id="@+id/navigation_profile"
     android:label="@string/title_profile"
-    android:name="edu.cnm.deepdive.powdr.ui.profile.ProfileFragment"
+    android:name="edu.cnm.deepdive.powdr.controller.ProfileFragment"
     tools:layout="@layout/fragment_notifications"/>
 
   <fragment

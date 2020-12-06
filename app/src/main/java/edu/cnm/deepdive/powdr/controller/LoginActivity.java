@@ -7,10 +7,11 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import edu.cnm.deepdive.powdr.MainActivity;
+import edu.cnm.deepdive.powdr.NavigationActivity;
 import edu.cnm.deepdive.powdr.R;
 import edu.cnm.deepdive.powdr.databinding.ActivityLoginBinding;
 import edu.cnm.deepdive.powdr.service.GoogleSignInService;
+import edu.cnm.deepdive.powdr.service.UserRepository;
 // import edu.cnm.deepdive.powdr.service.UserRepository;
 
 public class LoginActivity extends AppCompatActivity {
@@ -19,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
 
   private GoogleSignInService service;
   private ActivityLoginBinding binding;
-//  private UserRepository userRepository;
+  private UserRepository userRepository;
 
   @SuppressLint("CheckResult")
   @Override
@@ -54,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
 
   private void updateAndSwitch(GoogleSignInAccount account) {
 
-    Intent intent = new Intent(this, MainActivity.class)
+    Intent intent = new Intent(this, NavigationActivity.class)
         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
     startActivity(intent);
 

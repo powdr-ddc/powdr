@@ -3,24 +3,24 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/mobile_navigation"
-  app:startDestination="@+id/navigation_home">
+  app:startDestination="@+id/navigation_wall">
 
   <fragment
-    android:id="@+id/navigation_home"
-    android:label="@string/title_home"
-    android:name="edu.cnm.deepdive.powdr.ui.home.HomeFragment"
-    tools:layout="@layout/fragment_home"/>
+    android:id="@+id/navigation_wall"
+    android:label="@string/title_wall"
+    android:name="edu.cnm.deepdive.powdr.ui.wall.WallFragment"
+    tools:layout="@layout/fragment_wall"/>
 
   <fragment
-    android:id="@+id/navigation_dashboard"
-    android:label="@string/title_dashboard"
-    android:name="edu.cnm.deepdive.powdr.ui.dashboard.DashboardFragment"
-    tools:layout="@layout/fragment_dashboard"/>
+    android:id="@+id/navigation_message"
+    android:label="@string/title_message"
+    android:name="edu.cnm.deepdive.powdr.ui.message.MessageFragment"
+    tools:layout="@layout/fragment_message"/>
 
   <fragment
-    android:id="@+id/navigation_notifications"
-    android:label="@string/title_notifications"
-    android:name="edu.cnm.deepdive.powdr.ui.notifications.NotificationsFragment"
+    android:id="@+id/navigation_profile"
+    android:label="@string/title_profile"
+    android:name="edu.cnm.deepdive.powdr.ui.profile.ProfileFragment"
     tools:layout="@layout/fragment_notifications"/>
 
   <fragment

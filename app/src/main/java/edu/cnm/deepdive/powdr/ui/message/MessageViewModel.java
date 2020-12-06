@@ -1,16 +1,16 @@
-package edu.cnm.deepdive.powdr.ui.home;
+package edu.cnm.deepdive.powdr.ui.message;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class MessageViewModel extends ViewModel {
 
   private MutableLiveData<String> mText;
 
-  public HomeViewModel() {
+  public MessageViewModel() {
     mText = new MutableLiveData<>();
-    mText.setValue("This is home fragment");
+    mText.setValue("This is dashboard fragment");
   }
 
   public LiveData<String> getText() {

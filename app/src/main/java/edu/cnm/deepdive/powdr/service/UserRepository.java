@@ -20,13 +20,9 @@ public class UserRepository {
   }
 
   public Single<User> getProfileFromServer() {
-    return signInService.refresh()
+    return signInService.refreshBearerToken()
         .observeOn(Schedulers.io())
-        .flatMap((account) -> webService.getProfile(getBearerToken(account)));
-    // TODO Add additional logic for persistence.
+        .flatMap(webService::getProfile);
   }
 
-  private String getBearerToken(GoogleSignInAccount account) {
-    return String.format("Bearer %s", account.getIdToken());
-  }
 }

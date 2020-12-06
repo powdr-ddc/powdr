@@ -4,7 +4,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import edu.cnm.deepdive.powdr.BuildConfig;
 import edu.cnm.deepdive.powdr.model.User;
+import edu.cnm.deepdive.powdr.model.dto.PostResponse;
 import io.reactivex.Single;
+import java.util.List;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import okhttp3.logging.HttpLoggingInterceptor.Level;
@@ -18,6 +20,9 @@ public interface PowdrWebService {
 
   @GET("users/me")
   Single<User> getProfile(@Header("Authorization") String bearerToken);
+
+  @GET("posts")
+  Single<PostResponse> getPosts(@Header("Authorization") String bearerToken);
 
   static PowdrWebService getInstance() {
     return InstanceHolder.INSTANCE;

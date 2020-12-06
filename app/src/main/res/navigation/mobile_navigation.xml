@@ -22,4 +22,38 @@
     android:label="@string/title_notifications"
     android:name="edu.cnm.deepdive.powdr.ui.notifications.NotificationsFragment"
     tools:layout="@layout/fragment_notifications"/>
+
+  <fragment
+    android:id="@+id/navigation_resort"
+    android:label="@string/title_resort"
+    android:name="edu.cnm.deepdive.powdr.controller.SkiResortFragment"
+    tools:layout="@layout/fragment_ski_resort">
+
+    <action
+      android:id="@+id/show_weather"
+      app:destination="@id/navigation_weather"
+      app:popUpTo="@id/navigation_resort">
+
+      <argument
+        android:name="latitude"
+        app:argType="float"/>
+      <argument
+        android:name="longitude"
+        app:argType="float"/>
+    </action>
+  </fragment>
+
+  <fragment
+    android:id="@+id/navigation_weather"
+    android:label="@string/weather_label"
+    android:name="edu.cnm.deepdive.powdr.controller.WeatherFragment"
+    tools:layout="@layout/fragment_weather">
+
+    <argument
+      android:name="latitude"
+      app:argType="float"/>
+    <argument
+      android:name="longitude"
+      app:argType="float"/>
+  </fragment>
 </navigation>

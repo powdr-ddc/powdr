@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.AppBarConfiguration.Builder;
 import androidx.navigation.ui.NavigationUI;
@@ -75,6 +76,9 @@ public class NavigationActivity extends AppCompatActivity {
     appBarConfig = new Builder(
         R.id.navigation_wall, R.id.navigation_message, R.id.navigation_profile)
         .build();
+    NavHostFragment navHostFragment =
+        (NavHostFragment) getSupportFragmentManager()
+            .findFragmentById(R.id.nav_host_fragment);
     navController = Navigation.findNavController(this, R.id.nav_host_fragment);
     NavigationUI.setupActionBarWithNavController(this, navController, appBarConfig);
     NavigationUI.setupWithNavController(binding.navView, navController);

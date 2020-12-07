@@ -5,19 +5,39 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:backgroundTint="@color/colorPrimary"
   tools:context=".controller.WallFragment">
 
-  <TextView
-    android:id="@+id/text_home"
-    android:layout_width="match_parent"
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/post_list"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@color/colorSecondary"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/create_post_fab"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
-    android:textAlignment="center"
-    android:textSize="20sp"
+    android:layout_margin="@dimen/fab_margin"
+    android:layout_marginEnd="16dp"
+    android:contentDescription="@string/create_post"
+    android:src="@drawable/ic_create_post"
+    app:backgroundTint="@color/colorPrimary"
+    app:borderWidth="0dp"
+    app:fabCustomSize="80dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.9"
+    app:tint="@color/colorSecondary"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

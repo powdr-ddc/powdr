@@ -84,6 +84,9 @@ dependencies {
 // Gson (Google JSON parser) dependency
     implementation 'com.google.code.gson:gson:2.8.6'
 
+// prettytime dependency
+    implementation 'org.ocpsoft.prettytime:prettytime:4.0.6.Final'
+
 // Retrofit (REST client) with ReactiveX & Gson integration
     def retrofit_version = '2.9.0'
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"

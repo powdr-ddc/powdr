@@ -8,7 +8,7 @@ import java.util.UUID;
 public class User {
 
   @Expose
-  @SerializedName("user_id")
+  @SerializedName("userId")
   private UUID externalId;
 
   @Expose

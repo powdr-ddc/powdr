@@ -4,20 +4,44 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import edu.cnm.deepdive.powdr.BuildConfig;
 import edu.cnm.deepdive.powdr.model.User;
+import edu.cnm.deepdive.powdr.model.dto.Post;
 import io.reactivex.Single;
+import java.util.Date;
+import java.util.List;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import okhttp3.logging.HttpLoggingInterceptor.Level;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface PowdrWebService {
 
+  // User Endpoints
   @GET("users/me")
   Single<User> getProfile(@Header("Authorization") String bearerToken);
+
+  // Post Endpoints
+  @GET("posts")
+  Single<List<Post>> getPosts(@Header("Authorization") String bearerToken);
+
+  @GET("posts")
+  Single<List<Post>> getPosts(@Header("Authorization") String bearerToken,
+      @Query("start") Date start, @Query("end") Date end);
+
+  @GET("posts")
+  Single<List<Post>> getPosts(@Header("Authorization") String bearerToken,
+      @Query("days") int days);
+
+  @POST("posts")
+  Single<Post> post(@Header("Authorization") String bearerToken, @Body Post post);
+
+
 
   static PowdrWebService getInstance() {
     return InstanceHolder.INSTANCE;

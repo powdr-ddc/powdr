@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.powdr.model;
+package edu.cnm.deepdive.powdr.model.dto;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

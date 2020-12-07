@@ -1,8 +1,7 @@
 package edu.cnm.deepdive.powdr.service;
 
 import android.content.Context;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import edu.cnm.deepdive.powdr.model.User;
+import edu.cnm.deepdive.powdr.model.dto.User;
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
 

@@ -70,6 +70,7 @@ public class PostAdapter extends RecyclerView.Adapter<Holder> {
       binding.postUserName.setText(post.getUser().getUsername());
       binding.postTimestamp.setText(prettyTime.format(post.getTimestamp()));
       binding.postBody.setText(post.getContent());
+      // TODO implement Image Pathing when we understand WTF that is
     }
   }
 

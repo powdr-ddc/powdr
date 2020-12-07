@@ -22,9 +22,11 @@ import retrofit2.http.Query;
 
 public interface PowdrWebService {
 
+  // User Endpoints
   @GET("users/me")
   Single<User> getProfile(@Header("Authorization") String bearerToken);
 
+  // Post Endpoints
   @GET("posts")
   Single<List<Post>> getPosts(@Header("Authorization") String bearerToken);
 
@@ -36,9 +38,9 @@ public interface PowdrWebService {
   Single<List<Post>> getPosts(@Header("Authorization") String bearerToken,
       @Query("days") int days);
 
-
   @POST("posts")
   Single<Post> post(@Header("Authorization") String bearerToken, @Body Post post);
+
 
 
   static PowdrWebService getInstance() {

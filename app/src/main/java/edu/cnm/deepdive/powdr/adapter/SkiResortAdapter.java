@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import edu.cnm.deepdive.powdr.adapter.SkiResortAdapter.Holder;
-import edu.cnm.deepdive.powdr.databinding.SkiResortItemBinding;
+import edu.cnm.deepdive.powdr.databinding.ItemSkiResortBinding;
 import org.jetbrains.annotations.NotNull;
 
 public class SkiResortAdapter extends RecyclerView.Adapter<Holder> {
@@ -32,7 +32,7 @@ public class SkiResortAdapter extends RecyclerView.Adapter<Holder> {
   @NonNull
   @Override
   public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    SkiResortItemBinding binding = SkiResortItemBinding.inflate(inflater, parent, false);
+    ItemSkiResortBinding binding = ItemSkiResortBinding.inflate(inflater, parent, false);
     return new Holder(binding);
   }
 
@@ -52,13 +52,13 @@ public class SkiResortAdapter extends RecyclerView.Adapter<Holder> {
    */
   class Holder extends RecyclerView.ViewHolder {
 
-    private final SkiResortItemBinding binding;
+    private final ItemSkiResortBinding binding;
 
     /**
      * Constructs an instance of holder
-     * @param binding SkiResortItem binding
+     * @param binding ItemSkiResort binding
      */
-    public Holder(SkiResortItemBinding binding) {
+    public Holder(ItemSkiResortBinding binding) {
       super(binding.getRoot());
       this.binding = binding;
     }

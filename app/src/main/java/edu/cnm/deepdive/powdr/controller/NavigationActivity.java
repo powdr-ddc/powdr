@@ -13,7 +13,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.AppBarConfiguration.Builder;
 import androidx.navigation.ui.NavigationUI;
 import edu.cnm.deepdive.powdr.R;
-import edu.cnm.deepdive.powdr.controller.LoginActivity;
 import edu.cnm.deepdive.powdr.databinding.ActivityNavigationBinding;
 import edu.cnm.deepdive.powdr.service.GoogleSignInService;
 import org.jetbrains.annotations.NotNull;
@@ -74,7 +73,7 @@ public class NavigationActivity extends AppCompatActivity {
 
   private void setupNavigation() {
     appBarConfig = new Builder(
-        R.id.navigation_wall, R.id.navigation_message, R.id.navigation_profile)
+        R.id.navigation_wall, R.id.navigation_message, R.id.navigation_profile, R.id.navigation_resort)
         .build();
     NavHostFragment navHostFragment =
         (NavHostFragment) getSupportFragmentManager()

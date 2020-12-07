@@ -8,7 +8,9 @@ import edu.cnm.deepdive.powdr.model.dto.Post;
 import io.reactivex.Single;
 import java.util.Date;
 import java.util.List;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import okhttp3.logging.HttpLoggingInterceptor.Level;
 import retrofit2.Retrofit;
@@ -17,7 +19,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface PowdrWebService {
@@ -41,6 +45,10 @@ public interface PowdrWebService {
   @POST("posts")
   Single<Post> post(@Header("Authorization") String bearerToken, @Body Post post);
 
+//  @Multipart
+//  @POST("images")
+//  Single<Image> post(@Header("Authorization") String bearerToken, @Part MultipartBody.Part file,
+//      @Part("title") RequestBody title);
 
 
   static PowdrWebService getInstance() {

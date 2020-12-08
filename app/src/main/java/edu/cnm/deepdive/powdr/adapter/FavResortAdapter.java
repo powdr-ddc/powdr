@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import edu.cnm.deepdive.powdr.adapter.SkiResortAdapter.Holder;
-import edu.cnm.deepdive.powdr.databinding.SkiResortItemBinding;
+// import edu.cnm.deepdive.powdr.databinding.SkiResortItemBinding;
 import org.jetbrains.annotations.NotNull;
 
 public class FavResortAdapter extends SkiResortAdapter {

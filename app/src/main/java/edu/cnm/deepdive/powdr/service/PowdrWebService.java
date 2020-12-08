@@ -3,7 +3,7 @@ package edu.cnm.deepdive.powdr.service;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import edu.cnm.deepdive.powdr.BuildConfig;
-import edu.cnm.deepdive.powdr.model.User;
+import edu.cnm.deepdive.powdr.model.dto.User;
 import edu.cnm.deepdive.powdr.model.dto.Post;
 import io.reactivex.Single;
 import java.util.Date;

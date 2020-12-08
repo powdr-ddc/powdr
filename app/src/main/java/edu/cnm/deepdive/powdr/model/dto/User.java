@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.powdr.model;
+package edu.cnm.deepdive.powdr.model.dto;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -15,6 +15,9 @@ public class User {
   @SerializedName("name")
   private String username;
 
+  @Expose
+  private String bio;
+
   public UUID getExternalId() {
     return externalId;
   }
@@ -29,5 +32,13 @@ public class User {
 
   public void setUsername(String username) {
     this.username = username;
+  }
+
+  public String getBio() {
+    return bio;
+  }
+
+  public void setBio(String bio) {
+    this.bio = bio;
   }
 }

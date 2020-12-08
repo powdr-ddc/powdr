@@ -7,22 +7,8 @@
   android:layout_height="match_parent"
   tools:context=".controller.MessageFragment">
 
-  <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/post_list"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:orientation="vertical"
-    android:clickable="true"
-    android:focusable="true"
-    android:background="@color/colorSecondary"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-
   <com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:id="@+id/create_post_fab"
+    android:id="@+id/compose_message_fab"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/fab_margin"
@@ -45,6 +31,11 @@
     android:orientation="vertical"
     android:clickable="true"
     android:focusable="true"
+    android:background="@color/colorSecondary"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    />
+    tools:listitem="@layout/item_message"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

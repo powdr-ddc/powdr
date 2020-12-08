@@ -38,7 +38,7 @@ public class ProfileFragment extends Fragment {
     profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
     getLifecycle().addObserver(profileViewModel);
     profileViewModel.getProfile().observe(getViewLifecycleOwner(), (profile) -> {
-      binding.profileName.;
+      // TODO Finish setting up ViewModel
           });
     profileViewModel.getThrowable().observe(getViewLifecycleOwner(), (throwable) -> {
       if (throwable != null) {

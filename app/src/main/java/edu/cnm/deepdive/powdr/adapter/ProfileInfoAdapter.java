@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import edu.cnm.deepdive.powdr.adapter.FavResortAdapter.OnFavResortClickListener;
 import edu.cnm.deepdive.powdr.adapter.ProfileInfoAdapter.Holder;
 import edu.cnm.deepdive.powdr.databinding.ItemProfileInfoBinding;
 import edu.cnm.deepdive.powdr.model.dto.User;
@@ -55,8 +56,10 @@ public class ProfileInfoAdapter extends RecyclerView.Adapter<Holder> {
 
     private void bind(int position) {
       User user = users.get(position);
+
+      FavResortAdapter favResortAdapter = new FavResortAdapter(context, favListener);
       binding.bio.setText(user.getBio());
-      // TODO implement Image Pathing when we understand WTF that is
+      binding.favResortList.setAdapter(favResortAdapter);
     }
   }
 

@@ -23,7 +23,7 @@ public class FavResortAdapter extends SkiResortAdapter {
    * @param listener Listener for clicking on an item
    */
   public FavResortAdapter(Context context,
-      OnResortClickListener listener) {
+      OnFavResortClickListener listener) {
     super(context, listener);
     this.context = context;
 //  this.favResorts = resorts;

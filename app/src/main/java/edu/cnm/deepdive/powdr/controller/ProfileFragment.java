@@ -37,8 +37,8 @@ public class ProfileFragment extends Fragment {
     FragmentActivity activity = getActivity();
     profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
     getLifecycle().addObserver(profileViewModel);
-    profileViewModel.getProfile().observe(getViewLifecycleOwner(), (profile) -> {
-      // TODO Finish setting up ViewModel
+    profileViewModel.getProfile().observe(getViewLifecycleOwner(), (user) -> {
+      binding.profileName.setText(user.getUsername());
           });
     profileViewModel.getThrowable().observe(getViewLifecycleOwner(), (throwable) -> {
       if (throwable != null) {

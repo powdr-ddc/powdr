@@ -30,6 +30,11 @@ public interface PowdrWebService {
   @GET("users/me")
   Single<User> getProfile(@Header("Authorization") String bearerToken);
 
+  @Multipart
+  @POST("users/images")
+  Single<User> post(@Header("Authorization") String bearerToken, @Part MultipartBody.Part file);
+
+
   // Post Endpoints
   @GET("posts")
   Single<List<Post>> getPosts(@Header("Authorization") String bearerToken);
@@ -45,10 +50,9 @@ public interface PowdrWebService {
   @POST("posts")
   Single<Post> post(@Header("Authorization") String bearerToken, @Body Post post);
 
-//  @Multipart
-//  @POST("images")
-//  Single<Image> post(@Header("Authorization") String bearerToken, @Part MultipartBody.Part file,
-//      @Part("title") RequestBody title);
+  @Multipart
+  @POST("posts/images")
+  Single<Post> postPicture(@Header("Authorization") String bearerToken, @Part MultipartBody.Part file);
 
 
   static PowdrWebService getInstance() {

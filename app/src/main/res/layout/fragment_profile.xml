@@ -7,17 +7,141 @@
   android:layout_height="match_parent"
   tools:context=".controller.ProfileFragment">
 
-  <TextView
-    android:id="@+id/text_notifications"
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/profile_header"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
-    android:textAlignment="center"
-    android:textSize="20sp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
+    app:layout_constraintEnd_toEndOf="parent"
+    android:background="@color/colorPrimaryDark">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+      android:id="@+id/profile_pic"
+      android:layout_width="200dp"
+      android:layout_height="200dp"
+      android:src="@drawable/jonah_profile"
+      android:contentDescription="@string/profile_picture"
+      android:rotation="270"
+      android:clickable="true"
+      android:focusable="true"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+      android:id="@+id/profile_name"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/profile_pic"
+      android:textSize="32sp"
+      android:textColor="@color/colorSecondary"
+      android:fontFamily="sans-serif"
+      android:textStyle="bold"
+      android:textAlignment="center"
+      tools:text="Jonah Rodriguez"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"/>
+
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+  <LinearLayout
+    android:id="@+id/profile_info"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:orientation="vertical"
+    app:layout_constraintTop_toBottomOf="@id/profile_header"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <TextView
+      android:id="@+id/bio_header"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_margin"
+      android:text="@string/bio_header"
+      android:textSize="20sp"
+      android:fontFamily="sans-serif"
+      android:textStyle="bold"
+      android:textAlignment="center"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintBottom_toTopOf="@id/bio"/>
+
+    <TextView
+      android:id="@+id/bio"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_margin"
+      android:textColor="@color/black"
+      android:textSize="@dimen/body_text_size"
+      app:layout_constraintTop_toBottomOf="@id/bio_header"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:text="@string/placeholder_bio"/>
+
+    <TextView
+      android:id="@+id/fav_resort_header"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_margin"
+      android:text="@string/fav_ski_resorts_header"
+      android:textSize="20sp"
+      android:fontFamily="sans-serif"
+      android:textStyle="bold"
+      android:textAlignment="center"
+      app:layout_constraintTop_toBottomOf="@id/bio"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+      android:id="@+id/fav_resort_list"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/half_margin"
+      android:orientation="vertical"
+      android:clickable="true"
+      android:focusable="true"
+      android:background="?android:attr/selectableItemBackground"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/fav_resort_header"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:text="@string/fav_ski_resort_info"/>
+
+    <TextView
+      android:id="@+id/friends_header"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_margin"
+      android:text="@string/friends_header"
+      android:textSize="20sp"
+      android:fontFamily="sans-serif"
+      android:textStyle="bold"
+      android:textAlignment="center"
+      app:layout_constraintTop_toBottomOf="@id/fav_resort_list"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+      android:id="@+id/friends_list"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/half_margin"
+      android:orientation="vertical"
+      android:clickable="true"
+      android:focusable="true"
+      android:background="?android:attr/selectableItemBackground"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/friends_header"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:text="@string/friends_list_anecdote"/>
+
+  </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+

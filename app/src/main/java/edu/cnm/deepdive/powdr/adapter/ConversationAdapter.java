@@ -1,56 +1,46 @@
 package edu.cnm.deepdive.powdr.adapter;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import edu.cnm.deepdive.powdr.R;
-import edu.cnm.deepdive.powdr.adapter.MessageAdapter.Holder;
-import edu.cnm.deepdive.powdr.adapter.SkiResortAdapter.OnResortClickListener;
+import edu.cnm.deepdive.powdr.adapter.ConversationAdapter.Holder;
 import edu.cnm.deepdive.powdr.databinding.ItemConversationBinding;
-import edu.cnm.deepdive.powdr.databinding.ItemSkiResortBinding;
 import edu.cnm.deepdive.powdr.model.dto.Message;
-import edu.cnm.deepdive.powdr.model.dto.SkiResort;
 import java.util.List;
-import org.jetbrains.annotations.NotNull;
 
-public class MessageAdapter extends RecyclerView.Adapter<Holder> {
+public class ConversationAdapter extends RecyclerView.Adapter<Holder> {
 
   private final Context context;
   private final LayoutInflater inflater;
-  private final List<Message> messages;
+  private final List<Message> convos;
+  private final OnConvoClickListener listener;
 
-
-  /**
-   * Constructs an instance of the MessageAdapter
-   *
-   * @param context Application context
-   */
-  public MessageAdapter(Context context, List<Message> messages) {
+  public ConversationAdapter(Context context, List<Message> convos,
+      OnConvoClickListener listener) {
     this.context = context;
-    this.messages = messages;
+    this.convos = convos;
     inflater = LayoutInflater.from(context);
+    this.listener = listener;
   }
-
 
   @NonNull
   @Override
   public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    ItemConversationBinding binding = ItemConversationBinding.inflate(
-        inflater, parent, false);
+    ItemConversationBinding binding = ItemConversationBinding.inflate(inflater, parent, false);
     return new Holder(binding);
   }
 
   @Override
-  public void onBindViewHolder(@NonNull @NotNull Holder holder, int position) {
-    holder.bind(position);
+  public void onBindViewHolder(@NonNull Holder holder, int position) {
+
   }
 
   @Override
   public int getItemCount() {
-    return messages.size();
+    return 0;
   }
 
   /**
@@ -62,7 +52,6 @@ public class MessageAdapter extends RecyclerView.Adapter<Holder> {
 
     /**
      * Constructs an instance of holder
-     *
      * @param binding ItemSkiResort binding
      */
     public Holder(ItemConversationBinding binding) {
@@ -76,5 +65,14 @@ public class MessageAdapter extends RecyclerView.Adapter<Holder> {
       binding.messageIcon.setImageResource(R.drawable.jonah_profile);
     }
   }
+
+  /**
+   * Interface for the onClickListener when selecting an item in the RecyclerView.
+   */
+  public interface OnConvoClickListener {
+    void onClick(Message message);
+  }
+
+
 
 }

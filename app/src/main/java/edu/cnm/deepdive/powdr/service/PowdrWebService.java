@@ -3,6 +3,7 @@ package edu.cnm.deepdive.powdr.service;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import edu.cnm.deepdive.powdr.BuildConfig;
+import edu.cnm.deepdive.powdr.model.dto.Message;
 import edu.cnm.deepdive.powdr.model.dto.User;
 import edu.cnm.deepdive.powdr.model.dto.Post;
 import edu.cnm.deepdive.powdr.model.dto.SkiResort;
@@ -40,9 +41,6 @@ public interface PowdrWebService {
   @PUT("users/me/image")
   Single<User> putProfilePic(@Header("Authorization") String bearerToken, @Part MultipartBody.Part file);
 
-
-
-
   // Post Endpoints
   @GET("posts")
   Single<List<Post>> getPosts(@Header("Authorization") String bearerToken);
@@ -65,6 +63,8 @@ public interface PowdrWebService {
   @GET("ski-resorts")
   Single<List<SkiResort>> getSkiResorts(@Header("Authorization") String bearerToken);
 
+  @GET("messages")
+  Single<List<Message>> getMessages(@Header("Authorization") String bearerToken);
 
   static PowdrWebService getInstance() {
     return InstanceHolder.INSTANCE;

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:background="@color/gray">
+
+  <de.hdodenhof.circleimageview.CircleImageView
+    android:id="@+id/sender_pic"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:src="@drawable/jonah_profile"
+    android:rotation="270"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintBottom_toBottomOf="@id/received_message"/>
+
+  <androidx.cardview.widget.CardView
+    android:id="@+id/received_message"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/half_static_spacing"
+    app:cardBackgroundColor="@color/colorSecondary"
+    app:cardCornerRadius="@dimen/post_corner_radius"
+    app:layout_constraintVertical_bias=".35"
+    app:layout_constraintStart_toEndOf="@id/sender_pic"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+    <TextView
+      android:id="@+id/received_body"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/half_margin"
+      android:textSize="@dimen/body_text_size"
+      android:textColor="@color/white"
+      android:maxWidth="200dp"
+      android:minLines="1"
+      android:maxLines="10"
+      tools:text="@string/received_message_body"/>
+
+  </androidx.cardview.widget.CardView>
+
+  <androidx.cardview.widget.CardView
+    android:id="@+id/sent_message"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/half_static_spacing"
+    app:cardBackgroundColor="@color/colorPrimary"
+    app:cardCornerRadius="@dimen/post_corner_radius"
+    app:layout_constraintTop_toBottomOf="@id/received_message"
+    app:layout_constraintBottom_toTopOf="@id/received_message2"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <TextView
+      android:id="@+id/sent_body"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/half_margin"
+      android:textSize="@dimen/body_text_size"
+      android:textColor="@color/white"
+      android:maxWidth="200dp"
+      android:minLines="1"
+      android:maxLines="10"
+      tools:text="@string/sent_message_body"/>
+
+  </androidx.cardview.widget.CardView>
+
+  <de.hdodenhof.circleimageview.CircleImageView
+    android:id="@+id/sender_pic2"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:src="@drawable/jonah_profile"
+    android:rotation="270"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintBottom_toBottomOf="@id/received_message2"/>
+
+  <androidx.cardview.widget.CardView
+    android:id="@+id/received_message2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/half_static_spacing"
+    app:cardBackgroundColor="@color/colorSecondary"
+    app:cardCornerRadius="@dimen/post_corner_radius"
+    app:layout_constraintStart_toEndOf="@id/sender_pic"
+    app:layout_constraintTop_toBottomOf="@id/sent_message"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+    <TextView
+      android:id="@+id/received_body2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/half_margin"
+      android:textSize="@dimen/body_text_size"
+      android:textColor="@color/white"
+      android:maxWidth="200dp"
+      android:minLines="1"
+      android:maxLines="10"
+      tools:text="@string/received_body2"/>
+
+  </androidx.cardview.widget.CardView>
+
+  <LinearLayout
+    android:id="@+id/chat_controls"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/half_margin"
+    android:gravity="end|center_vertical"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+  <com.google.android.material.textfield.TextInputEditText
+    android:id="@+id/input_field"
+    android:orientation="horizontal"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"/>
+
+  <Button
+    android:id="@+id/submit"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/half_margin"
+    android:text="@string/submit"/>
+
+  </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

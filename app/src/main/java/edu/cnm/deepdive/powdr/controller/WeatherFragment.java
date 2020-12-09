@@ -11,6 +11,7 @@ import edu.cnm.deepdive.powdr.R;
 import org.jetbrains.annotations.NotNull;
 
 public class WeatherFragment extends Fragment {
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

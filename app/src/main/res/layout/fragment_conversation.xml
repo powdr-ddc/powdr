@@ -1,25 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools">
+  tools:context=".controller.ConversationsFragment"
+  android:background="@color/colorSecondary">
 
-  <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/conversation"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:orientation="vertical"
-    android:background="@color/gray"
-    android:padding="@dimen/half_static_spacing"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/compose_message_fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/fab_margin"
+    android:layout_marginEnd="16dp"
+    android:contentDescription="@string/new_message"
+    android:src="@drawable/ic_baseline_edit_24"
+    app:backgroundTint="@color/colorPrimary"
+    app:borderWidth="0dp"
+    app:fabCustomSize="80dp"
     app:layout_constraintBottom_toBottomOf="parent"
-    tools:listitem="@layout/item_sent_message"/>
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.9"
+    app:tint="@color/colorSecondary"/>
 
+  <androidx.cardview.widget.CardView
+    android:id="@+id/convo1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_margin="@dimen/half_static_spacing"
+    app:cardCornerRadius="@dimen/post_corner_radius"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/half_margin"
+      android:clickable="true"
+      android:focusable="true"
+      android:background="?android:attr/selectableItemBackground"
+      android:orientation="horizontal">
+
+      <ImageView
+        android:id="@+id/message_icon1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/jonah_profile"
+        android:rotation="270"
+        android:contentDescription="@string/title_profile"
+        android:layout_margin="@dimen/half_static_spacing"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+      <TextView
+        android:id="@+id/message_user_name1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Jonah Rodriguez"
+        android:textSize="@dimen/header_text_size"
+        android:textStyle="bold"
+        android:layout_margin="@dimen/half_margin"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="textEnd"
+        android:padding="@dimen/half_margin"
+        app:layout_constraintStart_toEndOf="@id/message_icon1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/convo_timestamp1"/>
+
+      <TextView
+        android:id="@+id/convo_timestamp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/timestamp_text_size"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/message_user_name1"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="69 days"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.cardview.widget.CardView>
+
+  <androidx.cardview.widget.CardView
+    android:id="@+id/convo2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/half_static_spacing"
+    app:cardCornerRadius="@dimen/post_corner_radius"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/convo1">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/half_margin"
+      android:clickable="true"
+      android:focusable="true"
+      android:background="?android:attr/selectableItemBackground"
+      android:orientation="horizontal">
+
+      <ImageView
+        android:id="@+id/message_icon2"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/jonah_profile"
+        android:rotation="270"
+        android:contentDescription="@string/title_profile"
+        android:layout_margin="@dimen/half_static_spacing"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+      <TextView
+        android:id="@+id/message_user_name2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Jonah Rodriguez"
+        android:textSize="@dimen/header_text_size"
+        android:textStyle="bold"
+        android:layout_margin="@dimen/half_margin"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="textEnd"
+        android:padding="@dimen/half_margin"
+        app:layout_constraintStart_toEndOf="@id/message_icon2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/convo_timestamp2"/>
+
+      <TextView
+        android:id="@+id/convo_timestamp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/timestamp_text_size"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/message_user_name2"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="69 days"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import com.squareup.picasso.Picasso;
 import edu.cnm.deepdive.powdr.R;
 import edu.cnm.deepdive.powdr.adapter.PostAdapter;
 import edu.cnm.deepdive.powdr.databinding.FragmentProfileBinding;
@@ -39,6 +40,9 @@ public class ProfileFragment extends Fragment {
     getLifecycle().addObserver(profileViewModel);
     profileViewModel.getProfile().observe(getViewLifecycleOwner(), (user) -> {
       binding.profileName.setText(user.getUsername());
+      Picasso.get()
+          .load(user.getImagePath())
+      .into(binding.profilePic);
           });
     profileViewModel.getThrowable().observe(getViewLifecycleOwner(), (throwable) -> {
       if (throwable != null) {

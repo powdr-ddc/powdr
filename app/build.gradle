@@ -88,6 +88,9 @@ dependencies {
     // Gson (Google JSON parser) dependency
     implementation 'com.google.code.gson:gson:2.8.6'
 
+    // CircleImage dependency
+    compile 'de.hdodenhof:circleimageview:1.2.1'
+
     // Picasso dependency
     implementation 'com.squareup.picasso:picasso:2.71828'
 

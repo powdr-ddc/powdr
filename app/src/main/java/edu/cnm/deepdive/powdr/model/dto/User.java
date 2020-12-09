@@ -18,6 +18,9 @@ public class User {
   @Expose
   private String bio;
 
+  @Expose
+  private String imagePath;
+
   public UUID getExternalId() {
     return externalId;
   }
@@ -40,5 +43,13 @@ public class User {
 
   public void setBio(String bio) {
     this.bio = bio;
+  }
+
+  public String getImagePath() {
+    return imagePath;
+  }
+
+  public void setImagePath(String imagePath) {
+    this.imagePath = imagePath;
   }
 }

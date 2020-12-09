@@ -25,6 +25,7 @@ public class UserRepository {
         .flatMap(webService::getProfile);
   }
 
+
 //  public Single<List<User>> getFriends()
 
 }

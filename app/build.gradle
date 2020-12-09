@@ -32,8 +32,8 @@ android {
                 quoted(getProperty(connection_properties, "base_url"))
         buildConfigField "String", "API_BASE_URL",
                 quoted(getProperty(connection_properties, "api_base_url"))
-        buildConfigField "String", "API_KEY",
-                quoted(getProperty(connection_properties, "api_key"))
+        resValue "string", "api_key",
+                getProperty(connection_properties, "api_key")
 
 
     }

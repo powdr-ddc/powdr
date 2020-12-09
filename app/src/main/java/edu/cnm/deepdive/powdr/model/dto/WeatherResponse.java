@@ -473,5 +473,52 @@ public class WeatherResponse {
 
   public static class Bottom {
 
+    @Expose
+    @SerializedName("maxtempC")
+    private int maxTempC;
+
+    @Expose
+    @SerializedName("maxtempF")
+    private int maxTempF;
+
+    @Expose
+    @SerializedName("mintempC")
+    private int minTempC;
+
+    @Expose
+    @SerializedName("mintempF")
+    private int minTempF;
+
+    public int getMaxTempC() {
+      return maxTempC;
+    }
+
+    public void setMaxTempC(int maxTempC) {
+      this.maxTempC = maxTempC;
+    }
+
+    public int getMaxTempF() {
+      return maxTempF;
+    }
+
+    public void setMaxTempF(int maxTempF) {
+      this.maxTempF = maxTempF;
+    }
+
+    public int getMinTempC() {
+      return minTempC;
+    }
+
+    public void setMinTempC(int minTempC) {
+      this.minTempC = minTempC;
+    }
+
+    public int getMinTempF() {
+      return minTempF;
+    }
+
+    public void setMinTempF(int minTempF) {
+      this.minTempF = minTempF;
+    }
   }
 }

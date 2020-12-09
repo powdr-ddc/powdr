@@ -61,9 +61,9 @@ public interface PowdrWebService {
   @Multipart
   @POST("posts/images")
   Single<Post> postPicture(@Header("Authorization") String bearerToken, @Part MultipartBody.Part file);
+
   @GET("ski-resorts")
   Single<List<SkiResort>> getSkiResorts(@Header("Authorization") String bearerToken);
-
 
 
   static PowdrWebService getInstance() {

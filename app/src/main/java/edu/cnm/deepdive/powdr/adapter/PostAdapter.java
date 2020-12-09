@@ -51,6 +51,15 @@ public class PostAdapter extends RecyclerView.Adapter<Holder> {
     return posts.size();
   }
 
+  public void clear() {
+    posts.clear();
+    notifyDataSetChanged();
+  }
+
+  public void addAll(List<Post> posts) {
+    posts.addAll(posts);
+    notifyDataSetChanged();
+  }
   class Holder extends RecyclerView.ViewHolder {
 
     private final ItemPostBinding binding;

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_margin="@dimen/half_static_spacing"
+  android:layout_gravity="end">
+
+  <androidx.cardview.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/half_margin"
+    app:cardBackgroundColor="@color/colorPrimary"
+    app:cardCornerRadius="@dimen/post_corner_radius"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+  <TextView
+    android:id="@+id/sent_body"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/half_margin"
+    android:textSize="@dimen/body_text_size"
+    android:textColor="@color/white"
+    android:maxWidth="200dp"
+    android:minLines="1"
+    android:maxLines="10"
+    tools:text="bla bla bla snowboard snowboard yeet bla bla bla"/>
+
+  </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

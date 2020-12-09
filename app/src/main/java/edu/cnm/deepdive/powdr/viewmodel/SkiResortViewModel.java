@@ -28,6 +28,7 @@ public class SkiResortViewModel extends AndroidViewModel implements LifecycleObs
     skiResorts = new MutableLiveData<>();
     throwable = new MutableLiveData<>();
     pending = new CompositeDisposable();
+    loadSkiResorts();
   }
 
   public LiveData<SkiResort> getSkiResort() {
@@ -42,7 +43,7 @@ public class SkiResortViewModel extends AndroidViewModel implements LifecycleObs
     return throwable;
   }
 
-  public void loadPosts() {
+  public void loadSkiResorts() {
     throwable.setValue(null);
     pending.add(
         skiResortRepository.getAll()

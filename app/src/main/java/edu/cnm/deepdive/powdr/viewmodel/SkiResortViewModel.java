@@ -8,6 +8,7 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.OnLifecycleEvent;
+import edu.cnm.deepdive.powdr.model.dto.FavoriteSkiResort;
 import edu.cnm.deepdive.powdr.model.dto.SkiResort;
 import edu.cnm.deepdive.powdr.service.SkiResortRepository;
 import io.reactivex.disposables.CompositeDisposable;
@@ -18,6 +19,8 @@ public class SkiResortViewModel extends AndroidViewModel implements LifecycleObs
   private final SkiResortRepository skiResortRepository;
   private final MutableLiveData<SkiResort> skiResort;
   private final MutableLiveData<List<SkiResort>> skiResorts;
+  private final MutableLiveData<FavoriteSkiResort> favoriteSkiResort;
+  private final MutableLiveData<List<FavoriteSkiResort>> favoriteSkiResorts;
   private final MutableLiveData<Throwable> throwable;
   private final CompositeDisposable pending;
 
@@ -26,9 +29,12 @@ public class SkiResortViewModel extends AndroidViewModel implements LifecycleObs
     skiResortRepository = new SkiResortRepository(application);
     skiResort = new MutableLiveData<>();
     skiResorts = new MutableLiveData<>();
+    favoriteSkiResort = new MutableLiveData<>();
+    favoriteSkiResorts = new MutableLiveData<>();
     throwable = new MutableLiveData<>();
     pending = new CompositeDisposable();
     loadSkiResorts();
+    loadFavoriteSkiResorts();
   }
 
   public LiveData<SkiResort> getSkiResort() {
@@ -37,6 +43,14 @@ public class SkiResortViewModel extends AndroidViewModel implements LifecycleObs
 
   public LiveData<List<SkiResort>> getSkiResorts() {
     return skiResorts;
+  }
+
+  public LiveData<FavoriteSkiResort> getFavoriteSkiResort() {
+    return favoriteSkiResort;
+  }
+
+  public LiveData<List<FavoriteSkiResort>> getFavoriteSkiResorts() {
+    return favoriteSkiResorts;
   }
 
   public LiveData<Throwable> getThrowable() {
@@ -51,6 +65,17 @@ public class SkiResortViewModel extends AndroidViewModel implements LifecycleObs
                 skiResorts::postValue,
                 throwable::postValue
             )
+    );
+  }
+
+  public void loadFavoriteSkiResorts() {
+    throwable.setValue(null);
+    pending.add(
+        skiResortRepository.getAllFavorites()
+        .subscribe(
+            favoriteSkiResorts::postValue,
+            throwable::postValue
+        )
     );
   }
 

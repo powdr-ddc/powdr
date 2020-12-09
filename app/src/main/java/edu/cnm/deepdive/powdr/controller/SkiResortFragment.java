@@ -29,8 +29,7 @@ public class SkiResortFragment extends Fragment {
   }
 
   @Override
-  public void onViewCreated(@NonNull @NotNull View view,
-      @Nullable Bundle savedInstanceState) {
+  public void onViewCreated(@NonNull @NotNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     viewModel = new ViewModelProvider(this).get(SkiResortViewModel.class);
     getLifecycle().addObserver(viewModel);

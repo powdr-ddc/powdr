@@ -7,10 +7,18 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import edu.cnm.deepdive.powdr.R;
+import androidx.lifecycle.ViewModelProvider;
+import edu.cnm.deepdive.powdr.databinding.FragmentWeatherBinding;
+import edu.cnm.deepdive.powdr.model.dto.SkiResort;
+import edu.cnm.deepdive.powdr.viewmodel.SkiResortViewModel;
 import org.jetbrains.annotations.NotNull;
 
 public class WeatherFragment extends Fragment {
+
+  private SkiResortViewModel viewModel;
+  private FragmentWeatherBinding binding;
+  private SkiResort skiResort;
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -19,11 +27,14 @@ public class WeatherFragment extends Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_weather, container, false);
+    binding = FragmentWeatherBinding.inflate(inflater);
+    return binding.getRoot();
   }
 
   @Override
   public void onViewCreated(@NonNull @NotNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
+    viewModel = new ViewModelProvider(this).get(SkiResortViewModel.class);
+    getLifecycle().addObserver(viewModel);
   }
 }

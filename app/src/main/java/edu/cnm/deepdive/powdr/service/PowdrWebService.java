@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import edu.cnm.deepdive.powdr.BuildConfig;
 import edu.cnm.deepdive.powdr.model.User;
+import edu.cnm.deepdive.powdr.model.dto.FavoriteSkiResort;
 import edu.cnm.deepdive.powdr.model.dto.Post;
 import edu.cnm.deepdive.powdr.model.dto.SkiResort;
 import io.reactivex.Single;
@@ -42,9 +43,12 @@ public interface PowdrWebService {
   @POST("posts")
   Single<Post> post(@Header("Authorization") String bearerToken, @Body Post post);
 
+  // Ski Resort Endpoints
   @GET("ski-resorts")
   Single<List<SkiResort>> getSkiResorts(@Header("Authorization") String bearerToken);
 
+  @GET("ski-resorts/{skiResortId:}/favorite")
+  Single<List<FavoriteSkiResort>> getFavorites(@Header("Authorization") String bearerToken);
 
 
   static PowdrWebService getInstance() {

@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import edu.cnm.deepdive.powdr.BuildConfig;
 import edu.cnm.deepdive.powdr.model.User;
 import edu.cnm.deepdive.powdr.model.dto.Post;
+import edu.cnm.deepdive.powdr.model.dto.SkiResort;
 import io.reactivex.Single;
 import java.util.Date;
 import java.util.List;
@@ -45,10 +46,9 @@ public interface PowdrWebService {
   @POST("posts")
   Single<Post> post(@Header("Authorization") String bearerToken, @Body Post post);
 
-//  @Multipart
-//  @POST("images")
-//  Single<Image> post(@Header("Authorization") String bearerToken, @Part MultipartBody.Part file,
-//      @Part("title") RequestBody title);
+  @GET("ski-resorts")
+  Single<List<SkiResort>> getSkiResorts(@Header("Authorization") String bearerToken);
+
 
 
   static PowdrWebService getInstance() {

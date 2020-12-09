@@ -7,13 +7,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import edu.cnm.deepdive.powdr.adapter.SkiResortAdapter.Holder;
 import edu.cnm.deepdive.powdr.databinding.ItemSkiResortBinding;
+import edu.cnm.deepdive.powdr.model.dto.SkiResort;
+import java.util.List;
 import org.jetbrains.annotations.NotNull;
 
 public class SkiResortAdapter extends RecyclerView.Adapter<Holder> {
 
   private final Context context;
   private final LayoutInflater inflater;
-//  private final List<SkiResort> resorts;
+  private final List<SkiResort> resorts;
   private final OnResortClickListener listener;
 
   /**
@@ -21,10 +23,10 @@ public class SkiResortAdapter extends RecyclerView.Adapter<Holder> {
    * @param context Application context
    * @param listener Listener for clicking on an item
    */
-  public SkiResortAdapter(Context context, //List<SkiResort> resorts,
+  public SkiResortAdapter(Context context, List<SkiResort> resorts,
       OnResortClickListener listener) {
     this.context = context;
-//    this.resorts = resorts;
+    this.resorts = resorts;
     inflater = LayoutInflater.from(context);
     this.listener = listener;
   }
@@ -43,8 +45,7 @@ public class SkiResortAdapter extends RecyclerView.Adapter<Holder> {
 
   @Override
   public int getItemCount() {
-    return 0;
-//    return resorts.size();
+    return resorts.size();
   }
 
   /**
@@ -64,9 +65,9 @@ public class SkiResortAdapter extends RecyclerView.Adapter<Holder> {
     }
 
     private void bind(int position) {
-//      SkiResort skiResort = resorts.get(position);
-//      binding.skiResortListItem.setText(skiResort.getName());
-//      itemView.setOnClickListener((v) -> listener.onClick(skiResort));
+      SkiResort skiResort = resorts.get(position);
+      binding.skiResortListItem.setText(skiResort.getName());
+      itemView.setOnClickListener((v) -> listener.onClick(skiResort));
     }
   }
 
@@ -74,7 +75,7 @@ public class SkiResortAdapter extends RecyclerView.Adapter<Holder> {
    * Interface for the onClickListener when selecting an item in the RecyclerView.
    */
   public interface OnResortClickListener {
-//    void onClick(SkiResort skiResort);
+    void onClick(SkiResort skiResort);
   }
 
 }

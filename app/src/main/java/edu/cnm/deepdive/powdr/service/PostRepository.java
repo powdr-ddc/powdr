@@ -48,7 +48,7 @@ public class PostRepository {
   public Single<Post> save(Post post) {
     return signInService.refreshBearerToken()
         .observeOn(Schedulers.io())
-        .flatMap((token) -> webService.post(token, post));
+        .flatMap((token) -> webService.putProfilePic(token, post));
   }
 
 //  public Single<User> add(User imagePath, String title, String description) {

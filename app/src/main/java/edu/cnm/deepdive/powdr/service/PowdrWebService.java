@@ -11,6 +11,7 @@ import java.util.List;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import okhttp3.logging.HttpLoggingInterceptor.Level;
 import retrofit2.Retrofit;
@@ -21,6 +22,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
 
@@ -30,9 +32,14 @@ public interface PowdrWebService {
   @GET("users/me")
   Single<User> getProfile(@Header("Authorization") String bearerToken);
 
+  @GET("users/me/image")
+  Single<ResponseBody> getProfilePic(@Header("Authorization") String bearerToken);
+
   @Multipart
-  @POST("users/images")
-  Single<User> post(@Header("Authorization") String bearerToken, @Part MultipartBody.Part file);
+  @PUT("users/me/image")
+  Single<User> putProfilePic(@Header("Authorization") String bearerToken, @Part MultipartBody.Part file);
+
+
 
 
   // Post Endpoints
@@ -48,7 +55,7 @@ public interface PowdrWebService {
       @Query("days") int days);
 
   @POST("posts")
-  Single<Post> post(@Header("Authorization") String bearerToken, @Body Post post);
+  Single<Post> putProfilePic(@Header("Authorization") String bearerToken, @Body Post post);
 
   @Multipart
   @POST("posts/images")

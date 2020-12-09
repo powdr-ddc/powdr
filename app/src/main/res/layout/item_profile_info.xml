@@ -60,9 +60,7 @@
     android:background="?android:attr/selectableItemBackground"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@id/fav_resort_header"
-    app:layout_constraintEnd_toEndOf="parent"
-    tools:listitem="@layout/ski_resort_item"
-    tools:itemCount="4"/>
+    app:layout_constraintEnd_toEndOf="parent"/>
 
   <TextView
     android:id="@+id/friends_header"

@@ -5,18 +5,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.navigation.Navigation;
 import edu.cnm.deepdive.powdr.adapter.PostAdapter;
 import edu.cnm.deepdive.powdr.databinding.FragmentWallBinding;
 import edu.cnm.deepdive.powdr.viewmodel.WallViewModel;
-import org.jetbrains.annotations.NotNull;
+import java.util.Collections;
 
 public class WallFragment extends Fragment {
 
@@ -50,6 +47,7 @@ public class WallFragment extends Fragment {
     wallViewModel = new ViewModelProvider(this).get(WallViewModel.class);
     getLifecycle().addObserver(wallViewModel);
     wallViewModel.getPosts().observe(getViewLifecycleOwner(), (posts) -> {
+      Collections.reverse(posts);
       PostAdapter adapter = new PostAdapter(
           activity, posts);
       binding.postList.setAdapter(adapter);

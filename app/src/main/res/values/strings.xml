@@ -16,4 +16,8 @@
   <string name="bio_header">Bio</string>
   <string name="fav_ski_resorts_header">Favorite Ski Resorts</string>
   <string name="friends_header">Friends</string>
+  <string name="select_image_prompt">Select Image</string>
+  <string name="friends_list_anecdote">Here\'s where my friends would be... If I had any</string>
+  <string name="placeholder_bio">Blah blah blah, snowboard snowboard snowboard lol I can\'t believe you ski, that\'s so gross</string>
+  <string name="fav_ski_resort_info">A list of favorite ski resorts, chosen by the user</string>
 </resources>

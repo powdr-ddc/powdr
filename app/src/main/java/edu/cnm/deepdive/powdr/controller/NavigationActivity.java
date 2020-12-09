@@ -47,8 +47,6 @@ public class NavigationActivity extends AppCompatActivity {
     boolean handled = true;
     if (item.getItemId() == R.id.sign_out) {
       logout();
-//    } else if (item.getItemId() == R.id.) {
-//      navController.navigate(R.id.navigation_settings);
     }
     else {
       handled = super.onOptionsItemSelected(item);

@@ -12,6 +12,8 @@
   <string name="ski_resort">Ski Resort</string>
   <string name="create_post">Create Post</string>
   <string name="create_post_body">Body</string>
+  <string name="new_message">New Message</string>
+  <string name="weather_icon">Weather Icon</string>
   <string name="profile_picture">Profile Picture</string>
   <string name="bio_header">Bio</string>
   <string name="fav_ski_resorts_header">Favorite Ski Resorts</string>

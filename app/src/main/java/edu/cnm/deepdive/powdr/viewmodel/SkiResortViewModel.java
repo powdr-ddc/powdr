@@ -10,31 +10,42 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.OnLifecycleEvent;
 import edu.cnm.deepdive.powdr.model.dto.FavoriteSkiResort;
 import edu.cnm.deepdive.powdr.model.dto.SkiResort;
+import edu.cnm.deepdive.powdr.model.dto.WeatherResponse;
 import edu.cnm.deepdive.powdr.service.SkiResortRepository;
+import edu.cnm.deepdive.powdr.service.WeatherRepository;
 import io.reactivex.disposables.CompositeDisposable;
 import java.util.List;
 
 public class SkiResortViewModel extends AndroidViewModel implements LifecycleObserver {
 
   private final SkiResortRepository skiResortRepository;
+  private final WeatherRepository weatherRepository;
   private final MutableLiveData<SkiResort> skiResort;
   private final MutableLiveData<List<SkiResort>> skiResorts;
   private final MutableLiveData<FavoriteSkiResort> favoriteSkiResort;
   private final MutableLiveData<List<FavoriteSkiResort>> favoriteSkiResorts;
+  private final MutableLiveData<WeatherResponse> weather;
   private final MutableLiveData<Throwable> throwable;
   private final CompositeDisposable pending;
 
   public SkiResortViewModel(@NonNull Application application) {
     super(application);
     skiResortRepository = new SkiResortRepository(application);
+    weatherRepository = new WeatherRepository(application);
     skiResort = new MutableLiveData<>();
     skiResorts = new MutableLiveData<>();
     favoriteSkiResort = new MutableLiveData<>();
     favoriteSkiResorts = new MutableLiveData<>();
+    weather = new MutableLiveData<>();
     throwable = new MutableLiveData<>();
     pending = new CompositeDisposable();
+    loadSkiResort();
     loadSkiResorts();
     loadFavoriteSkiResorts();
+  }
+
+  public LiveData<WeatherResponse> getWeather() {
+    return weather;
   }
 
   public LiveData<SkiResort> getSkiResort() {
@@ -68,6 +79,17 @@ public class SkiResortViewModel extends AndroidViewModel implements LifecycleObs
     );
   }
 
+  public void loadSkiResort() {
+    throwable.setValue(null);
+    pending.add(
+        skiResortRepository.get()
+        .subscribe(
+            skiResort::postValue,
+            throwable::postValue
+        )
+    );
+  }
+
   public void loadFavoriteSkiResorts() {
     throwable.setValue(null);
     pending.add(
@@ -76,6 +98,24 @@ public class SkiResortViewModel extends AndroidViewModel implements LifecycleObs
             favoriteSkiResorts::postValue,
             throwable::postValue
         )
+    );
+  }
+
+  /**
+   * Requests the weather forecast for the specified latitude and longitude.
+   *
+   * @param metric Metric unit of measurement
+   * @param latitude  Latitude of location
+   * @param longitude Longitude of location
+   */
+  public void requestWeather(String metric, float latitude, float longitude) {
+    throwable.setValue(null);
+    pending.add(
+        weatherRepository.get(metric, latitude, longitude)
+            .subscribe(
+                weather::postValue,
+                throwable::postValue
+            )
     );
   }
 

@@ -2,523 +2,422 @@ package edu.cnm.deepdive.powdr.model.dto;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import java.net.URL;
-import java.util.Date;
+import java.util.List;
 
+/**
+ * Data transfer class to transfer the data between the weather API and the application.
+ */
 public class WeatherResponse {
 
   @Expose
-  private Astronomy astronomy;
+  @SerializedName("temp")
+  private Temperature temperature;
 
   @Expose
-  private Top top;
+  private List<Weather> weather;
 
   @Expose
-  private Mid mid;
+  private int visibility;
 
   @Expose
-  private Bottom bottom;
+  private Clouds clouds;
 
   @Expose
-  private Hourly hourly;
+  private Precipitation rain;
 
   @Expose
-  @SerializedName("chanceofsnow")
-  private float chanceOfSnow;
+  private Precipitation snow;
 
-  @Expose
-  private Date date;
-
-  @Expose
-  @SerializedName("totalSnowfall_cm")
-  private float totalSnowfall;
-
-  public Astronomy getAstronomy() {
-    return astronomy;
+  /**
+   * Returns the temperature of a location.
+   */
+  public Temperature getTemperature() {
+    return temperature;
   }
 
-  public void setAstronomy(Astronomy astronomy) {
-    this.astronomy = astronomy;
+  /**
+   * Sets the temperature of a location
+   * @param temperature Temperature to set.
+   */
+  public void setTemperature(Temperature temperature) {
+    this.temperature = temperature;
   }
 
-  public Top getTop() {
-    return top;
+  /**
+   * Returns the weather attribute of a location.
+   */
+  public List<Weather> getWeather() {
+    return weather;
   }
 
-  public void setTop(Top top) {
-    this.top = top;
+  /**
+   * Sets the weather attribute of a location.
+   * @param weather List of weather attributes
+   */
+  public void setWeather(List<Weather> weather) {
+    this.weather = weather;
   }
 
-  public Mid getMid() {
-    return mid;
+  /**
+   * Returns the visibility of a location.
+   */
+  public int getVisibility() {
+    return visibility;
   }
 
-  public void setMid(Mid mid) {
-    this.mid = mid;
+  /**
+   * Sets the visibility of a location.
+   * @param visibility visibility percentage
+   */
+  public void setVisibility(int visibility) {
+    this.visibility = visibility;
   }
 
-  public Bottom getBottom() {
-    return bottom;
+  /**
+   * Returns the cloud coverage of a location.
+   */
+  public Clouds getClouds() {
+    return clouds;
   }
 
-  public void setBottom(Bottom bottom) {
-    this.bottom = bottom;
+  /**
+   * Sets the cloud coverage of a location.
+   * @param clouds cloud attributes
+   */
+  public void setClouds(Clouds clouds) {
+    this.clouds = clouds;
   }
 
-  public Hourly getHourly() {
-    return hourly;
+  /**
+   * Returns the rain stats of a location.
+   */
+  public Precipitation getRain() {
+    return rain;
   }
 
-  public void setHourly(Hourly hourly) {
-    this.hourly = hourly;
+  /**
+   * Sets the rain stats of a location
+   * @param rain Rain stats
+   */
+  public void setRain(Precipitation rain) {
+    this.rain = rain;
   }
 
-  public float getChanceOfSnow() {
-    return chanceOfSnow;
+  /**
+   * Returns the snow stats of a location.
+   */
+  public Precipitation getSnow() {
+    return snow;
   }
 
-  public void setChanceOfSnow(float chanceOfSnow) {
-    this.chanceOfSnow = chanceOfSnow;
+  /**
+   * Sets the snow stats of a location.
+   * @param snow Snow stats
+   */
+  public void setSnow(Precipitation snow) {
+    this.snow = snow;
   }
 
-  public Date getDate() {
-    return date;
-  }
-
-  public void setDate(Date date) {
-    this.date = date;
-  }
-
-  public float getTotalSnowfall() {
-    return totalSnowfall;
-  }
-
-  public void setTotalSnowfall(float totalSnowfall) {
-    this.totalSnowfall = totalSnowfall;
-  }
-
-  public static class Astronomy {
+  /**
+   * Class that contains the attributes of temperature from the API.
+   */
+  public static class Temperature {
+    @Expose
+    @SerializedName("temp")
+    private float current;
 
     @Expose
-    private Date sunrise;
+    @SerializedName("feels_like")
+    private float feelsLike;
 
     @Expose
-    private Date sunset;
-
-    public Date getSunrise() {
-      return sunrise;
-    }
-
-    public void setSunrise(Date sunrise) {
-      this.sunrise = sunrise;
-    }
-
-    public Date getSunset() {
-      return sunset;
-    }
-
-    public void setSunset(Date sunset) {
-      this.sunset = sunset;
-    }
-  }
-
-  public static class Hourly {
+    @SerializedName("temp_min")
+    private float min;
 
     @Expose
-    private Date time;
+    @SerializedName("temp_max")
+    private float max;
 
     @Expose
-    private int tempC;
+    private float pressure;
 
     @Expose
-    private int tempF;
+    private float humidity;
 
-    @Expose
-    @SerializedName("windspeedMiles")
-    private int windSpeedMiles;
-
-    @Expose
-    @SerializedName("windspeedKmph")
-    private int windSpeedKMph;
-
-    @Expose
-    @SerializedName("winddirDegree")
-    private int windDirDegree;
-
-    @Expose
-    @SerializedName("winddirection")
-    private String windDirection;
-
-    @Expose
-    private int weatherCode;
-
-    @Expose
-    private String weatherDesc;
-
-    @Expose
-    private URL weatherIconUrl;
-
-    @Expose
-    private float precipMM;
-
-    @Expose
-    private float precipInches;
-
-    @Expose
-    private int humidity;
-
-    @Expose
-    private int visibility;
-
-    @Expose
-    @SerializedName("cloudcover")
-    private int cloudCover;
-
-    @Expose
-    @SerializedName("chanceofrain")
-    private int chanceOfRain;
-
-    @Expose
-    @SerializedName("chanceofwindy")
-    private int chanceOfWindy;
-
-    @Expose
-    @SerializedName("chanceofovercast")
-    private int chanceOfOvercast;
-
-    @Expose
-    @SerializedName("chanceofsunny")
-    private int chanceOfSunny;
-
-    @Expose
-    @SerializedName("chanceoffog")
-    private int chanceOfFog;
-
-    @Expose
-    @SerializedName("chanceofsnow")
-    private int chanceOfSnow;
-
-    @Expose
-    @SerializedName("chanceoflightning")
-    private int chanceOfLightning;
-
-    @Expose
-    @SerializedName("snowfall_cm")
-    private int snowfallCm;
-
-    public Date getTime() {
-      return time;
+    /**
+     * Returns the current temperature in Kelvin.
+     */
+    public float getCurrent() {
+      return current;
     }
 
-    public void setTime(Date time) {
-      this.time = time;
+    /**
+     * Sets the current temperature.
+     * @param current Current temperature
+     */
+    public void setCurrent(float current) {
+      this.current = current;
     }
 
-    public int getTempC() {
-      return tempC;
+    /**
+     * Returns the temperature that it feels like due to other attributes such as wind.
+     */
+    public float getFeelsLike() {
+      return feelsLike;
     }
 
-    public void setTempC(int tempC) {
-      this.tempC = tempC;
+    /**
+     * Sets the temperature it feels like according to other attributes.
+     * @param feelsLike Temperature it feels like.
+     */
+    public void setFeelsLike(float feelsLike) {
+      this.feelsLike = feelsLike;
     }
 
-    public int getTempF() {
-      return tempF;
+    /**
+     * Returns the minimum temperature forecast.
+     */
+    public float getMin() {
+      return min;
     }
 
-    public void setTempF(int tempF) {
-      this.tempF = tempF;
+    /**
+     * Sets the minimum temperature forecast.
+     * @param min Minimum temperature
+     */
+    public void setMin(float min) {
+      this.min = min;
     }
 
-    public int getWindSpeedMiles() {
-      return windSpeedMiles;
+    /**
+     * Returns the maximum temperature forecast.
+     */
+    public float getMax() {
+      return max;
     }
 
-    public void setWindSpeedMiles(int windSpeedMiles) {
-      this.windSpeedMiles = windSpeedMiles;
+    /**
+     * Sets the maximum temperature forecast.
+     * @param max Maximum temperature
+     */
+    public void setMax(float max) {
+      this.max = max;
     }
 
-    public int getWindSpeedKMph() {
-      return windSpeedKMph;
+    /**
+     * Returns the current pressure in the atmosphere for a location.
+     */
+    public float getPressure() {
+      return pressure;
     }
 
-    public void setWindSpeedKMph(int windSpeedKMph) {
-      this.windSpeedKMph = windSpeedKMph;
+    /**
+     * Sets the current pressure in the atmosphere for a location.
+     * @param pressure Atmospheric pressure
+     */
+    public void setPressure(float pressure) {
+      this.pressure = pressure;
     }
 
-    public int getWindDirDegree() {
-      return windDirDegree;
-    }
-
-    public void setWindDirDegree(int windDirDegree) {
-      this.windDirDegree = windDirDegree;
-    }
-
-    public String getWindDirection() {
-      return windDirection;
-    }
-
-    public void setWindDirection(String windDirection) {
-      this.windDirection = windDirection;
-    }
-
-    public int getWeatherCode() {
-      return weatherCode;
-    }
-
-    public void setWeatherCode(int weatherCode) {
-      this.weatherCode = weatherCode;
-    }
-
-    public String getWeatherDesc() {
-      return weatherDesc;
-    }
-
-    public void setWeatherDesc(String weatherDesc) {
-      this.weatherDesc = weatherDesc;
-    }
-
-    public URL getWeatherIconUrl() {
-      return weatherIconUrl;
-    }
-
-    public void setWeatherIconUrl(URL weatherIconUrl) {
-      this.weatherIconUrl = weatherIconUrl;
-    }
-
-    public float getPrecipMM() {
-      return precipMM;
-    }
-
-    public void setPrecipMM(float precipMM) {
-      this.precipMM = precipMM;
-    }
-
-    public float getPrecipInches() {
-      return precipInches;
-    }
-
-    public void setPrecipInches(float precipInches) {
-      this.precipInches = precipInches;
-    }
-
-    public int getHumidity() {
+    /**
+     * Returns the humidity of a specified location.
+     */
+    public float getHumidity() {
       return humidity;
     }
 
-    public void setHumidity(int humidity) {
+    /**
+     * Sets the humidity of a location.
+     * @param humidity Humidity
+     */
+    public void setHumidity(float humidity) {
       this.humidity = humidity;
     }
-
-    public int getVisibility() {
-      return visibility;
-    }
-
-    public void setVisibility(int visibility) {
-      this.visibility = visibility;
-    }
-
-    public int getCloudCover() {
-      return cloudCover;
-    }
-
-    public void setCloudCover(int cloudCover) {
-      this.cloudCover = cloudCover;
-    }
-
-    public int getChanceOfRain() {
-      return chanceOfRain;
-    }
-
-    public void setChanceOfRain(int chanceOfRain) {
-      this.chanceOfRain = chanceOfRain;
-    }
-
-    public int getChanceOfWindy() {
-      return chanceOfWindy;
-    }
-
-    public void setChanceOfWindy(int chanceOfWindy) {
-      this.chanceOfWindy = chanceOfWindy;
-    }
-
-    public int getChanceOfOvercast() {
-      return chanceOfOvercast;
-    }
-
-    public void setChanceOfOvercast(int chanceOfOvercast) {
-      this.chanceOfOvercast = chanceOfOvercast;
-    }
-
-    public int getChanceOfSunny() {
-      return chanceOfSunny;
-    }
-
-    public void setChanceOfSunny(int chanceOfSunny) {
-      this.chanceOfSunny = chanceOfSunny;
-    }
-
-    public int getChanceOfFog() {
-      return chanceOfFog;
-    }
-
-    public void setChanceOfFog(int chanceOfFog) {
-      this.chanceOfFog = chanceOfFog;
-    }
-
-    public int getChanceOfSnow() {
-      return chanceOfSnow;
-    }
-
-    public void setChanceOfSnow(int chanceOfSnow) {
-      this.chanceOfSnow = chanceOfSnow;
-    }
-
-    public int getChanceOfLightning() {
-      return chanceOfLightning;
-    }
-
-    public void setChanceOfLightning(int chanceOfLightning) {
-      this.chanceOfLightning = chanceOfLightning;
-    }
-
-    public int getSnowfallCm() {
-      return snowfallCm;
-    }
-
-    public void setSnowfallCm(int snowfallCm) {
-      this.snowfallCm = snowfallCm;
-    }
   }
 
+  /**
+   * Class that contains the attributes of weather from the API.
+   */
   public static class Weather {
+    @Expose
+    private int id;
 
     @Expose
-    private Date date;
+    private String main;
 
     @Expose
-    @SerializedName("chanceofsnow")
-    private int chanceOfSnow;
+    private String description;
 
     @Expose
-    private float totalSnowfall_cm;
+    private String icon;
 
-    @Expose
-    @SerializedName("maxtempC")
-    private int maxTempC;
-
-    @Expose
-    @SerializedName("mintempC")
-    private int minTempC;
-
-    @Expose
-    private Hourly hourly;
-
-    public Date getDate() {
-      return date;
+    /**
+     * Returns the id of the weather condition for a location.
+     */
+    public int getId() {
+      return id;
     }
 
-    public void setDate(Date date) {
-      this.date = date;
+    /**
+     * Sets the id of the weather condition for a location.
+     * @param id Weather id
+     */
+    public void setId(int id) {
+      this.id = id;
     }
 
-    public int getChanceOfSnow() {
-      return chanceOfSnow;
+    /**
+     * Returns the group of weather parameters (Rain, Snow, Extreme, ect.).
+     */
+    public String getMain() {
+      return main;
     }
 
-    public void setChanceOfSnow(int chanceOfSnow) {
-      this.chanceOfSnow = chanceOfSnow;
+    /**
+     * Returns the group of weather parameters (Rain, Snow, Extreme, ect.).
+     * @param main Weather parameters
+     */
+    public void setMain(String main) {
+      this.main = main;
     }
 
-    public float getTotalSnowfall_cm() {
-      return totalSnowfall_cm;
+    /**
+     * Returns the weather condition within the group.
+     */
+    public String getDescription() {
+      return description;
     }
 
-    public void setTotalSnowfall_cm(float totalSnowfall_cm) {
-      this.totalSnowfall_cm = totalSnowfall_cm;
+    /**
+     * Sets the weather condition within the group.
+     * @param description Description of weather
+     */
+    public void setDescription(String description) {
+      this.description = description;
     }
 
-    public int getMaxTempC() {
-      return maxTempC;
+    /**
+     * Returns the weather icon id
+     */
+    public String getIcon() {
+      return icon;
     }
 
-    public void setMaxTempC(int maxTempC) {
-      this.maxTempC = maxTempC;
-    }
-
-    public int getMinTempC() {
-      return minTempC;
-    }
-
-    public void setMinTempC(int minTempC) {
-      this.minTempC = minTempC;
-    }
-
-    public Hourly getHourly() {
-      return hourly;
-    }
-
-    public void setHourly(Hourly hourly) {
-      this.hourly = hourly;
+    /**
+     * Sets the weather icon id.
+     * @param icon Weather icon id
+     */
+    public void setIcon(String icon) {
+      this.icon = icon;
     }
   }
 
-  public static class Top {
+  /**
+   * Class that contains the attributes of wind from the API.
+   */
+  public static class Wind {
+    @Expose
+    private float speed;
 
+    @Expose
+    @SerializedName("deg")
+    private int degrees;
+
+    /**
+     * Returns the wind speed.
+     */
+    public float getSpeed() {
+      return speed;
+    }
+
+    /**
+     * Sets the wind speed.
+     * @param speed Wind speed
+     */
+    public void setSpeed(float speed) {
+      this.speed = speed;
+    }
+
+    /**
+     * Returns the wind direction in degrees (meteorological).
+     */
+    public int getDegrees() {
+      return degrees;
+    }
+
+    /**
+     * Sets the wind direction in degrees (meteorological).
+     * @param degrees Wind direction degrees
+     */
+    public void setDegrees(int degrees) {
+      this.degrees = degrees;
+    }
   }
 
-  public static class Mid {
+  /**
+   * Class that contains the attributes of clouds from the API.
+   */
+  public static class Clouds {
+    @Expose
+    @SerializedName("all")
+    private float coverage;
 
+    /**
+     * Returns the cloudiness percentage.
+     */
+    public float getCoverage() {
+      return coverage;
+    }
+
+    /**
+     * Sets the cloudiness percentage.
+     * @param coverage Cloudiness percentage
+     */
+    public void setCoverage(float coverage) {
+      this.coverage = coverage;
+    }
   }
 
-  public static class Bottom {
+  /**
+   * Class that contains the attributes of precipitation from the API.
+   */
+  public static class Precipitation {
+    @Expose
+    @SerializedName("1h")
+    private float oneHour;
 
     @Expose
-    @SerializedName("maxtempC")
-    private int maxTempC;
+    @SerializedName("3h")
+    private float threeHour;
 
-    @Expose
-    @SerializedName("maxtempF")
-    private int maxTempF;
-
-    @Expose
-    @SerializedName("mintempC")
-    private int minTempC;
-
-    @Expose
-    @SerializedName("mintempF")
-    private int minTempF;
-
-    public int getMaxTempC() {
-      return maxTempC;
+    /**
+     * Returns the rain/snow volume for the last 1 hour (mm)
+     */
+    public float getOneHour() {
+      return oneHour;
     }
 
-    public void setMaxTempC(int maxTempC) {
-      this.maxTempC = maxTempC;
+    /**
+     * Sets the rain/snow volume for the last 1 hour (mm)
+     * @param oneHour 1 hour
+     */
+    public void setOneHour(float oneHour) {
+      this.oneHour = oneHour;
     }
 
-    public int getMaxTempF() {
-      return maxTempF;
+    /**
+     * Returns the rain/snow volume for the last 3 hours (mm)
+     */
+    public float getThreeHour() {
+      return threeHour;
     }
 
-    public void setMaxTempF(int maxTempF) {
-      this.maxTempF = maxTempF;
-    }
-
-    public int getMinTempC() {
-      return minTempC;
-    }
-
-    public void setMinTempC(int minTempC) {
-      this.minTempC = minTempC;
-    }
-
-    public int getMinTempF() {
-      return minTempF;
-    }
-
-    public void setMinTempF(int minTempF) {
-      this.minTempF = minTempF;
+    /**
+     * Sets the rain/snow volume for the last 1 hour (mm)
+     * @param threeHour 3 hours
+     */
+    public void setThreeHour(float threeHour) {
+      this.threeHour = threeHour;
     }
   }
 }

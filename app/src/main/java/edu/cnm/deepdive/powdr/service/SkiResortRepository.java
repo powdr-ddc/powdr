@@ -19,6 +19,12 @@ public class SkiResortRepository {
     webService = PowdrWebService.getInstance();
   }
 
+  public Single<SkiResort> get() {
+    return signInService.refreshBearerToken()
+        .observeOn(Schedulers.io())
+        .flatMap(webService::getSkiResort);
+  }
+
   public Single<List<SkiResort>> getAll() {
     return signInService.refreshBearerToken()
         .observeOn(Schedulers.io())

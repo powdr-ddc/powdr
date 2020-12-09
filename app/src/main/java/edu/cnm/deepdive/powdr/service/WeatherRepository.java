@@ -12,7 +12,9 @@ import io.reactivex.schedulers.Schedulers;
 public class WeatherRepository {
 
   private final Context context;
-  private final WeatherWebService webService;
+  private final WeatherWebService weatherWebService;
+//  private final PowdrWebService powdrWebService;
+//  private final GoogleSignInService signInService;
 
   /**
    * Constructs an instance of the weather repository.
@@ -20,7 +22,9 @@ public class WeatherRepository {
    */
   public WeatherRepository(Context context) {
     this.context = context;
-    webService = WeatherWebService.getInstance();
+    weatherWebService = WeatherWebService.getInstance();
+//    powdrWebService = PowdrWebService.getInstance();
+//    signInService = GoogleSignInService.getInstance();
   }
 
   /**
@@ -30,8 +34,15 @@ public class WeatherRepository {
    * @param longitude longitude of location
    * @return A {@link WeatherResponse}
    */
-  public Single<WeatherResponse> get(int numOfDays, double latitude, double longitude) {
-    return webService.getWeather(context.getString(R.string.api_key), numOfDays, latitude, longitude)
+  public Single<WeatherResponse> get(String metric, double latitude, double longitude) {
+    return weatherWebService
+        .getWeather(context.getString(R.string.api_key), metric, latitude, longitude)
         .subscribeOn(Schedulers.io());
   }
+
+//  public Single<List<SkiResort>> getAll() {
+//    return signInService.refreshBearerToken()
+//        .observeOn(Schedulers.io())
+//        .flatMap(powdrWebService::getSkiResorts);
+//  }
 }

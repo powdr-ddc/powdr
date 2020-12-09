@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import edu.cnm.deepdive.powdr.databinding.FragmentWeatherBinding;
-import edu.cnm.deepdive.powdr.model.dto.SkiResort;
 import edu.cnm.deepdive.powdr.viewmodel.SkiResortViewModel;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,7 +16,6 @@ public class WeatherFragment extends Fragment {
 
   private SkiResortViewModel viewModel;
   private FragmentWeatherBinding binding;
-  private SkiResort skiResort;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -36,5 +34,12 @@ public class WeatherFragment extends Fragment {
     super.onViewCreated(view, savedInstanceState);
     viewModel = new ViewModelProvider(this).get(SkiResortViewModel.class);
     getLifecycle().addObserver(viewModel);
+    viewModel.getSkiResort().observe(getViewLifecycleOwner(), (skiResort) -> {
+      binding.skiResortName.setText(skiResort.getName());
+    });
+    viewModel.getWeather().observe(getViewLifecycleOwner(), (weather) -> {
+      binding.currentTemp.setText(String.valueOf(weather.getTemperature().getCurrent()));
+    });
+
   }
 }

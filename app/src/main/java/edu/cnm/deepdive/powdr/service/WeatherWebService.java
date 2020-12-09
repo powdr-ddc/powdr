@@ -17,8 +17,7 @@ import retrofit2.http.Query;
 public interface WeatherWebService {
 
   @GET
-  Single<WeatherResponse> getWeather(@Query("key") String apiKey,
-      @Query("num_of_days") int numberOfDays,
+  Single<WeatherResponse> getWeather(@Query("appid") String apiKey, @Query("units") String metric,
       @Query("lat") double latitude, @Query("lon") double longitude);
 
   // all the things we do in postman, we will implement in the interface

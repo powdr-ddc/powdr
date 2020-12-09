@@ -47,7 +47,10 @@ public interface PowdrWebService {
   @GET("ski-resorts")
   Single<List<SkiResort>> getSkiResorts(@Header("Authorization") String bearerToken);
 
-  @GET("ski-resorts/{skiResortId:}/favorite")
+  @GET("ski-resorts/{skiResortId}")
+  Single<SkiResort> getSkiResort(@Header("Authorization") String bearerToken);
+
+  @GET("ski-resorts/{skiResortId}/favorite")
   Single<List<FavoriteSkiResort>> getFavorites(@Header("Authorization") String bearerToken);
 
 

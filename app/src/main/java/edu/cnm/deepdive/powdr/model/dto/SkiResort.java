@@ -25,26 +25,44 @@ public class SkiResort {
     this.skiResortId = skiResortId;
   }
 
+  /**
+   * Gets the name of a {@link SkiResort}
+   */
   public String getName() {
     return name;
   }
 
+  /**
+   * Sets the name of a {@link SkiResort}
+   */
   public void setName(String name) {
     this.name = name;
   }
 
+  /**
+   * Gets the latitude of a {@link SkiResort}
+   */
   public double getLatitude() {
     return latitude;
   }
 
+  /**
+   * Sets the latitude of a {@link SkiResort}
+   */
   public void setLatitude(double latitude) {
     this.latitude = latitude;
   }
 
+  /**
+   * Gets the longitude of a {@link SkiResort}
+   */
   public double getLongitude() {
     return longitude;
   }
 
+  /**
+   * Sets the longitude of a {@link SkiResort}
+   */
   public void setLongitude(double longitude) {
     this.longitude = longitude;
   }

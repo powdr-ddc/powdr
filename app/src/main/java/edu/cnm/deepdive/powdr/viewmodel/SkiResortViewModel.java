@@ -17,6 +17,9 @@ import io.reactivex.disposables.CompositeDisposable;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * A class for controlling communication between the view and the model.
+ */
 public class SkiResortViewModel extends AndroidViewModel implements LifecycleObserver {
 
   private final SkiResortRepository skiResortRepository;
@@ -29,6 +32,10 @@ public class SkiResortViewModel extends AndroidViewModel implements LifecycleObs
   private final MutableLiveData<Throwable> throwable;
   private final CompositeDisposable pending;
 
+  /**
+   * A constructor for creating instances of the fields.
+   * @param application the context for the application.
+   */
   public SkiResortViewModel(@NonNull Application application) {
     super(application);
     skiResortRepository = new SkiResortRepository(application);
@@ -48,10 +55,16 @@ public class SkiResortViewModel extends AndroidViewModel implements LifecycleObs
     return weather;
   }
 
+  /**
+   * Gets a {@link SkiResort}
+   */
   public LiveData<SkiResort> getSkiResort() {
     return skiResort;
   }
 
+  /**
+   * Gets a list of {@link SkiResort}
+   */
   public LiveData<List<SkiResort>> getSkiResorts() {
     return skiResorts;
   }
@@ -64,10 +77,16 @@ public class SkiResortViewModel extends AndroidViewModel implements LifecycleObs
     return favoriteSkiResorts;
   }
 
+  /**
+   * Gets a throwable for {@link SkiResort}
+   */
   public LiveData<Throwable> getThrowable() {
     return throwable;
   }
 
+  /**
+   * Loads all {@link SkiResort}
+   */
   public void loadSkiResorts() {
     throwable.setValue(null);
     pending.add(

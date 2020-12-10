@@ -51,6 +51,9 @@ public class PostAdapter extends RecyclerView.Adapter<Holder> {
     return posts.size();
   }
 
+  /**
+   * Clears the recyclerView.
+   */
   public void clear() {
     posts.clear();
     notifyDataSetChanged();

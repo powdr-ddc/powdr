@@ -20,6 +20,9 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
+/**
+ * Repository for the {@link User} dto.
+ */
 public class UserRepository {
 
   private final Context context;
@@ -28,6 +31,9 @@ public class UserRepository {
   private final ContentResolver resolver;
   // TODO Add fields as appropriate for access to DAO's etc.
 
+  /**
+   * Creates a context of the {@link UserRepository}
+   */
   public UserRepository(Context context) {
     this.context = context;
     webService = PowdrWebService.getInstance();
@@ -35,12 +41,18 @@ public class UserRepository {
     resolver = context.getContentResolver();
   }
 
+  /**
+   * Gets the profile of a {@link User}
+   */
   public Single<User> getProfile() {
     return signInService.refreshBearerToken()
         .observeOn(Schedulers.io())
         .flatMap(webService::getProfile);
   }
 
+  /**
+   * Gets the profile picture of a {@link User}
+   */
   public Single<Bitmap> getProfilePic() {
     return signInService.refreshBearerToken()
         .observeOn(Schedulers.io())
@@ -48,6 +60,9 @@ public class UserRepository {
         .map((response) -> BitmapFactory.decodeStream(response.byteStream()));
   }
 
+  /**
+   * Saves the profile picture of a {@link User}
+   */
   public Single<User> saveProfilePic(Uri uri) {
     File[] filesCreated = new File[1];
     return signInService.refreshBearerToken()

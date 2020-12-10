@@ -8,12 +8,13 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import edu.cnm.deepdive.powdr.model.dto.Message;
-import edu.cnm.deepdive.powdr.model.dto.SkiResort;
 import edu.cnm.deepdive.powdr.service.MessageRepository;
-import edu.cnm.deepdive.powdr.service.SkiResortRepository;
 import io.reactivex.disposables.CompositeDisposable;
 import java.util.List;
 
+/**
+ * View model for Message.
+ */
 public class MessageViewModel extends AndroidViewModel implements LifecycleObserver {
 
   private final MessageRepository messageRepository;
@@ -21,7 +22,6 @@ public class MessageViewModel extends AndroidViewModel implements LifecycleObser
   private final MutableLiveData<List<Message>> messages;
   private final MutableLiveData<Throwable> throwable;
   private final CompositeDisposable pending;
-
 
   public MessageViewModel(@NonNull Application application) {
     super(application);
@@ -36,7 +36,6 @@ public class MessageViewModel extends AndroidViewModel implements LifecycleObser
   public LiveData<List<Message>> getMessages() {
     return messages;
   }
-
   public MutableLiveData<Throwable> getThrowable() {
     return throwable;
   }

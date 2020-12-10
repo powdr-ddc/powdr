@@ -5,6 +5,9 @@ import com.facebook.stetho.Stetho;
 import com.squareup.picasso.Picasso;
 import edu.cnm.deepdive.powdr.service.GoogleSignInService;
 
+/**
+ * Instantiates Powdr as an application that extends the {@link Application} class.
+ */
 public class PowdrApplication extends Application {
 
   @Override

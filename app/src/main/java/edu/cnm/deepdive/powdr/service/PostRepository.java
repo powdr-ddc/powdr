@@ -9,6 +9,9 @@ import java.util.Date;
 import java.util.List;
 import okhttp3.MediaType;
 
+/**
+ * Repository for the {@link Post} dto.
+ */
 public class PostRepository {
 
 
@@ -18,6 +21,9 @@ public class PostRepository {
   private final PowdrWebService webService;
   private final MediaType multipartFormType;
 
+  /**
+   * Creates the context of the {@link PostRepository}
+   */
   public PostRepository(Context context) {
     this.context = context;
     resolver = context.getContentResolver();
@@ -26,25 +32,36 @@ public class PostRepository {
     multipartFormType = MediaType.parse("multipart/form-data");
   }
 
+  /**
+   * Gets all {@link Post}
+   */
   public Single<List<Post>> getAll() {
     return signInService.refreshBearerToken()
         .observeOn(Schedulers.io())
         .flatMap(webService::getPosts);
   }
 
+  /**
+   * Gets all {@link Post} within specified date range.
+   */
   public Single<List<Post>> getInDateRange(Date start, Date end) {
     return signInService.refreshBearerToken()
         .observeOn(Schedulers.io())
         .flatMap((token) -> webService.getPosts(token, start, end));
   }
 
+  /**
+   * Gets the most recent {@link Post}
+   */
   public Single<List<Post>> getMostRecent(int days) {
     return signInService.refreshBearerToken()
         .observeOn(Schedulers.io())
         .flatMap((token) -> webService.getPosts(token, days));
   }
 
-
+  /**
+   * Saves a {@link Post}
+   */
   public Single<Post> save(Post post) {
     return signInService.refreshBearerToken()
         .observeOn(Schedulers.io())

@@ -14,6 +14,9 @@ import io.reactivex.disposables.CompositeDisposable;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * A class for controlling communication between the view and the model.
+ */
 public class WallViewModel extends AndroidViewModel implements LifecycleObserver {
 
   private static final int DEFAULT_DAYS = 30;
@@ -24,7 +27,10 @@ public class WallViewModel extends AndroidViewModel implements LifecycleObserver
   private final MutableLiveData<Throwable> throwable;
   private final CompositeDisposable pending;
 
-
+  /**
+   * A constructor for creating instances of the fields.
+   * @param application the context for the application.
+   */
   public WallViewModel(@NonNull Application application) {
     super(application);
     postRepository = new PostRepository(application);
@@ -35,18 +41,30 @@ public class WallViewModel extends AndroidViewModel implements LifecycleObserver
     loadMostRecent();
   }
 
+  /**
+   * Gets a list of {@link Post}
+   */
   public LiveData<List<Post>> getPosts() {
     return posts;
   }
 
+  /**
+   * Gets a single {@link Post}
+   */
   public LiveData<Post> getPost() {
     return post;
   }
 
+  /**
+   * Gets a throwable for {@link WallViewModel}
+   */
   public LiveData<Throwable> getThrowable() {
     return throwable;
   }
 
+  /**
+   * Loads all {@link Post}
+   */
   public void loadPosts() {
     throwable.setValue(null);
     pending.add(
@@ -58,6 +76,9 @@ public class WallViewModel extends AndroidViewModel implements LifecycleObserver
     );
   }
 
+  /**
+   * Loads all Posts within a specified date range.
+   */
   public void loadPostsInDateRange(Date start, Date end) {
     throwable.setValue(null);
     pending.add(
@@ -69,10 +90,16 @@ public class WallViewModel extends AndroidViewModel implements LifecycleObserver
     );
   }
 
+  /**
+   * loads the most recent post.
+   */
   public void loadMostRecent() {
     loadMostRecent(DEFAULT_DAYS);
   }
 
+  /**
+   * Loads the most recent post by days.
+   */
   public void loadMostRecent(int days) {
     throwable.setValue(null);
     pending.add(
@@ -84,7 +111,9 @@ public class WallViewModel extends AndroidViewModel implements LifecycleObserver
     );
   }
 
-
+  /**
+   * Saves a {@link Post}
+   */
   public void save(Post post) {
     throwable.setValue(null);
     pending.add(

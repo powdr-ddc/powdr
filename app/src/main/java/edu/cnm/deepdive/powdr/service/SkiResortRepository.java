@@ -8,12 +8,18 @@ import io.reactivex.schedulers.Schedulers;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Repository for the {@link SkiResort} dto.
+ */
 public class SkiResortRepository {
 
   private final Context context;
   private final GoogleSignInService signInService;
   private final PowdrWebService webService;
 
+  /**
+   * Creates a context of {@link SkiResortRepository}
+   */
   public SkiResortRepository(Context context) {
     this.context = context;
     signInService = GoogleSignInService.getInstance();
@@ -26,6 +32,9 @@ public class SkiResortRepository {
         .flatMap((token) -> webService.getSkiResort(token, id));
   }
 
+  /**
+   * Gets a list of {@link SkiResort}
+   */
   public Single<List<SkiResort>> getAll() {
     return signInService.refreshBearerToken()
         .observeOn(Schedulers.io())

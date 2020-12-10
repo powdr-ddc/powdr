@@ -12,6 +12,9 @@ import edu.cnm.deepdive.powdr.model.dto.User;
 import edu.cnm.deepdive.powdr.service.UserRepository;
 import io.reactivex.disposables.CompositeDisposable;
 
+/**
+ * A class for controlling communication between the view and the model.
+ */
 public class ProfileViewModel extends AndroidViewModel implements LifecycleObserver {
 
   private final UserRepository userRepository;
@@ -20,6 +23,10 @@ public class ProfileViewModel extends AndroidViewModel implements LifecycleObser
   private final MutableLiveData<Throwable> throwable;
   private final CompositeDisposable pending;
 
+  /**
+   * A constructor for creating instances of the fields.
+   * @param application
+   */
   public ProfileViewModel(@NonNull Application application) {
     super(application);
     userRepository = new UserRepository(application);
@@ -31,10 +38,16 @@ public class ProfileViewModel extends AndroidViewModel implements LifecycleObser
     loadProfilePic();
   }
 
+  /**
+   * Gets the profile of a user.
+   */
   public LiveData<User> getProfile() {
     return user;
   }
 
+  /**
+   * Saves the profile picture of the user.
+   */
   public void saveProfilePic(Uri uri) {
     throwable.setValue(null);
     pending.add(
@@ -47,6 +60,9 @@ public class ProfileViewModel extends AndroidViewModel implements LifecycleObser
 
   }
 
+  /**
+   * Loads the profile of {@link User}
+   */
   public void loadProfile() {
     throwable.setValue(null);
     pending.add(
@@ -59,6 +75,9 @@ public class ProfileViewModel extends AndroidViewModel implements LifecycleObser
 
   }
 
+  /**
+   * Loads the profile picture of a {@link User}
+   */
   public void loadProfilePic() {
     throwable.setValue(null);
     pending.add(
@@ -70,10 +89,16 @@ public class ProfileViewModel extends AndroidViewModel implements LifecycleObser
     );
   }
 
+  /**
+   * Gets an image.
+   */
   public LiveData<Bitmap> getImage() {
     return image;
   }
 
+  /**
+   * Gets a throwable object for errors.
+   */
   public LiveData<Throwable> getThrowable() {
     return throwable;
   }

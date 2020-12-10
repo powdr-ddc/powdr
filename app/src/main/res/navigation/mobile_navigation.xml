@@ -23,8 +23,21 @@
   <fragment
     android:id="@+id/navigation_message"
     android:label="@string/title_message"
-    android:name="edu.cnm.deepdive.powdr.controller.MessageFragment"
-    tools:layout="@layout/fragment_message"/>
+    android:name="edu.cnm.deepdive.powdr.controller.ConversationsFragment"
+    tools:layout="@layout/fragment_conversation">
+
+    <action
+      android:id="@+id/show_chat"
+      app:destination="@id/navigation_chat"
+      app:popUpTo="@id/navigation_message"/>
+
+  </fragment>
+
+  <fragment
+    android:id="@+id/navigation_chat"
+    android:label="Chat"
+    android:name="edu.cnm.deepdive.powdr.controller.ChatFragment"
+    tools:layout="@layout/fragment_chat"/>
 
   <fragment
     android:id="@+id/navigation_profile"

@@ -12,5 +12,21 @@
   <string name="ski_resort">Ski Resort</string>
   <string name="create_post">Create Post</string>
   <string name="create_post_body">Body</string>
+  <string name="new_message">New Message</string>
   <string name="weather_icon">Weather Icon</string>
+  <string name="profile_picture">Profile Picture</string>
+  <string name="bio_header">Bio</string>
+  <string name="fav_ski_resorts_header">Favorite Ski Resorts</string>
+  <string name="friends_header">Friends</string>
+  <string name="select_image_prompt">Select Image</string>
+  <string name="friends_list_anecdote">Here\'s where my friends would be… If I had any</string>
+  <string name="placeholder_bio">Blah blah blah, snowboard snowboard snowboard lol I can\'t believe you ski, that\'s so gross</string>
+  <string name="fav_ski_resort_info">A list of favorite ski resorts, chosen by the user</string>
+  <string name="message_sender">Jonah Rodriguez</string>
+  <string name="sent_message_timestamp">11 hrs ago</string>
+  <string name="sent_convo_timestamp">28 days ago</string>
+  <string name="received_message_body">Hi, yes I\'m stuck in a tree, can you call the Ski Patrol? I\'m somewhere on the bunny slope…</string>
+  <string name="sent_message_body">Ooh yikes, yeah I\'m going through a tunnel right now, can\'t hear you. Good Luck\!</string>
+  <string name="received_body2">… gee, thanks</string>
+  <string name="submit">Submit</string>
 </resources>

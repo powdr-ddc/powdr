@@ -8,19 +8,32 @@
   android:backgroundTint="@color/colorPrimary"
   tools:context=".controller.WallFragment">
 
-  <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/post_list"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:orientation="vertical"
-    android:clickable="true"
-    android:focusable="true"
-    android:background="@color/colorSecondary"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
+  <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/swipe_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/post_list"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:background="@color/colorSecondary"
+      android:clickable="true"
+      android:focusable="true"
+      android:orientation="vertical"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:listitem="@layout/item_post"/>
+
+  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
   <com.google.android.material.floatingactionbutton.FloatingActionButton
     android:id="@+id/create_post_fab"

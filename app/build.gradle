@@ -17,7 +17,7 @@ android {
 
     defaultConfig {
         applicationId "edu.cnm.deepdive.powdr"
-        minSdkVersion 24
+        minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -88,8 +88,17 @@ dependencies {
     // Gson (Google JSON parser) dependency
     implementation 'com.google.code.gson:gson:2.8.6'
 
-    // Pretty Time dependency
+    // CircleImage dependency
+    compile 'de.hdodenhof:circleimageview:1.2.1'
+
+    // Picasso dependency
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    // PrettyTime dependency
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.6.Final'
+
+    // SwipeRefresh dependency
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
     // Retrofit (REST client) with ReactiveX & Gson integration
     def retrofit_version = '2.9.0'

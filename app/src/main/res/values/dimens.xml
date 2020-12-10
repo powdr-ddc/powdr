@@ -9,5 +9,6 @@
   <dimen name="fab_margin">16dp</dimen>
   <dimen name="full_margin">16dp</dimen>
   <dimen name="post_corner_radius">12dp</dimen>
+  <dimen name="half_static_spacing">4dp</dimen>
   <dimen name="current_day">24sp</dimen>
 </resources>

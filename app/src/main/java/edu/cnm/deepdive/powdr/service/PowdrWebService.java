@@ -5,12 +5,17 @@ import com.google.gson.GsonBuilder;
 import edu.cnm.deepdive.powdr.BuildConfig;
 import edu.cnm.deepdive.powdr.model.User;
 import edu.cnm.deepdive.powdr.model.dto.FavoriteSkiResort;
+import edu.cnm.deepdive.powdr.model.dto.Message;
+import edu.cnm.deepdive.powdr.model.dto.User;
 import edu.cnm.deepdive.powdr.model.dto.Post;
 import edu.cnm.deepdive.powdr.model.dto.SkiResort;
 import io.reactivex.Single;
 import java.util.Date;
 import java.util.List;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import okhttp3.logging.HttpLoggingInterceptor.Level;
 import retrofit2.Retrofit;
@@ -19,7 +24,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface PowdrWebService {
@@ -27,6 +35,13 @@ public interface PowdrWebService {
   // User Endpoints
   @GET("users/me")
   Single<User> getProfile(@Header("Authorization") String bearerToken);
+
+  @GET("users/me/image")
+  Single<ResponseBody> getProfilePic(@Header("Authorization") String bearerToken);
+
+  @Multipart
+  @PUT("users/me/image")
+  Single<User> putProfilePic(@Header("Authorization") String bearerToken, @Part MultipartBody.Part file);
 
   // Post Endpoints
   @GET("posts")
@@ -41,7 +56,11 @@ public interface PowdrWebService {
       @Query("days") int days);
 
   @POST("posts")
-  Single<Post> post(@Header("Authorization") String bearerToken, @Body Post post);
+  Single<Post> putProfilePic(@Header("Authorization") String bearerToken, @Body Post post);
+
+  @Multipart
+  @POST("posts/images")
+  Single<Post> postPicture(@Header("Authorization") String bearerToken, @Part MultipartBody.Part file);
 
   // Ski Resort Endpoints
   @GET("ski-resorts")
@@ -53,6 +72,8 @@ public interface PowdrWebService {
   @GET("ski-resorts/{skiResortId}/favorite")
   Single<List<FavoriteSkiResort>> getFavorites(@Header("Authorization") String bearerToken);
 
+  @GET("messages")
+  Single<List<Message>> getMessages(@Header("Authorization") String bearerToken);
 
   static PowdrWebService getInstance() {
     return InstanceHolder.INSTANCE;

@@ -5,24 +5,36 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelStoreOwner;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener;
+import edu.cnm.deepdive.powdr.R;
 import edu.cnm.deepdive.powdr.adapter.PostAdapter;
 import edu.cnm.deepdive.powdr.databinding.FragmentWallBinding;
 import edu.cnm.deepdive.powdr.viewmodel.WallViewModel;
-import org.jetbrains.annotations.NotNull;
+import java.util.Collections;
 
 public class WallFragment extends Fragment {
 
   private WallViewModel wallViewModel;
   private FragmentWallBinding binding;
+  private SwipeRefreshLayout swipeRefreshLayout;
+  private RecyclerView recyclerView;
+  private PostAdapter adapter;
 
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+  }
+
+  @Override
   public View onCreateView(@NonNull LayoutInflater inflater,
       ViewGroup container, Bundle savedInstanceState) {
     binding = FragmentWallBinding.inflate(inflater);
@@ -50,9 +62,19 @@ public class WallFragment extends Fragment {
     wallViewModel = new ViewModelProvider(this).get(WallViewModel.class);
     getLifecycle().addObserver(wallViewModel);
     wallViewModel.getPosts().observe(getViewLifecycleOwner(), (posts) -> {
+      Collections.reverse(posts);
       PostAdapter adapter = new PostAdapter(
           activity, posts);
       binding.postList.setAdapter(adapter);
+      binding.swipeRefresh.setOnRefreshListener(new OnRefreshListener() {
+        @Override
+        public void onRefresh() {
+          adapter.clear();
+          wallViewModel.loadMostRecent();
+          binding.swipeRefresh.setRefreshing(false);
+        }
+      });
+
     });
     wallViewModel.getThrowable().observe(getViewLifecycleOwner(), (throwable) -> {
       if (throwable != null) {

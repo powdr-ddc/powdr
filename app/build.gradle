@@ -34,7 +34,8 @@ android {
                 quoted(getProperty(connection_properties, "api_base_url"))
         resValue "string", "api_key",
                 getProperty(connection_properties, "api_key")
-
+        buildConfigField "String", "ICON_URL_PATTERN",
+                quoted(getProperty(connection_properties, "icon_url_pattern"))
 
     }
 

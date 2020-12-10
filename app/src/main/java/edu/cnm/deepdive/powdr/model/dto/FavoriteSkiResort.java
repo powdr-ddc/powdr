@@ -1,7 +1,6 @@
 package edu.cnm.deepdive.powdr.model.dto;
 
 import com.google.gson.annotations.Expose;
-import edu.cnm.deepdive.powdr.model.User;
 
 public class FavoriteSkiResort {
 

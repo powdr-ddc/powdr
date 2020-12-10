@@ -34,9 +34,9 @@ public class WeatherRepository {
    * @param longitude longitude of location
    * @return A {@link WeatherResponse}
    */
-  public Single<WeatherResponse> get(String metric, double latitude, double longitude) {
+  public Single<WeatherResponse> get(double latitude, double longitude) {
     return weatherWebService
-        .getWeather(context.getString(R.string.api_key), metric, latitude, longitude)
+        .getWeather(context.getString(R.string.api_key), "metric", latitude, longitude)
         .subscribeOn(Schedulers.io());
   }
 

@@ -6,6 +6,7 @@ import edu.cnm.deepdive.powdr.model.dto.SkiResort;
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
 import java.util.List;
+import java.util.UUID;
 
 public class SkiResortRepository {
 
@@ -19,10 +20,10 @@ public class SkiResortRepository {
     webService = PowdrWebService.getInstance();
   }
 
-  public Single<SkiResort> get() {
+  public Single<SkiResort> get(UUID id) {
     return signInService.refreshBearerToken()
         .observeOn(Schedulers.io())
-        .flatMap(webService::getSkiResort);
+        .flatMap((token) -> webService.getSkiResort(token, id));
   }
 
   public Single<List<SkiResort>> getAll() {

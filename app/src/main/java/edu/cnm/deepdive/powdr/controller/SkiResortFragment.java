@@ -36,7 +36,7 @@ public class SkiResortFragment extends Fragment {
     viewModel.getSkiResorts().observe(getViewLifecycleOwner(), (skiResorts) -> {
       SkiResortAdapter adapter = new SkiResortAdapter(getContext(), skiResorts, (resort) ->
           Navigation.findNavController(getView()).navigate(SkiResortFragmentDirections.showWeather(
-              (float) resort.getLatitude(), (float) resort.getLongitude())));
+              resort.getSkiResortId())));
       binding.skiResortList.addItemDecoration(
           new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
       binding.skiResortList.setAdapter(adapter);

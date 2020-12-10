@@ -55,7 +55,7 @@ public class WeatherViewModel extends AndroidViewModel implements LifecycleObser
   public void requestWeather(String metric, float latitude, float longitude) {
     throwable.setValue(null);
     pending.add(
-        weatherRepository.get(metric, latitude, longitude)
+        weatherRepository.get(latitude, longitude)
             .subscribe(
                 weather::postValue,
                 throwable::postValue

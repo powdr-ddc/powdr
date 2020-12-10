@@ -1,8 +1,12 @@
 package edu.cnm.deepdive.powdr.model.dto;
 
 import com.google.gson.annotations.Expose;
+import java.util.UUID;
 
 public class SkiResort {
+
+  @Expose
+  private UUID skiResortId;
 
   @Expose
   private String name;
@@ -12,6 +16,14 @@ public class SkiResort {
 
   @Expose
   private double longitude;
+
+  public UUID getSkiResortId() {
+    return skiResortId;
+  }
+
+  public void setSkiResortId(UUID skiResortId) {
+    this.skiResortId = skiResortId;
+  }
 
   public String getName() {
     return name;

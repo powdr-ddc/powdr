@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import com.squareup.picasso.Picasso;
+import edu.cnm.deepdive.powdr.BuildConfig;
 import edu.cnm.deepdive.powdr.databinding.FragmentWeatherBinding;
 import edu.cnm.deepdive.powdr.viewmodel.SkiResortViewModel;
 import org.jetbrains.annotations.NotNull;
@@ -36,10 +38,15 @@ public class WeatherFragment extends Fragment {
     getLifecycle().addObserver(viewModel);
     viewModel.getSkiResort().observe(getViewLifecycleOwner(), (skiResort) -> {
       binding.skiResortName.setText(skiResort.getName());
+      viewModel.requestWeather(skiResort.getLatitude(), skiResort.getLongitude());
     });
     viewModel.getWeather().observe(getViewLifecycleOwner(), (weather) -> {
       binding.currentTemp.setText(String.valueOf(weather.getTemperature().getCurrent()));
+      String iconUrl = String.format(BuildConfig.ICON_URL_PATTERN, weather.getWeather().get(0).getIcon());
+      Picasso.get().load(iconUrl).into(binding.weatherIcon);
     });
-
+    //noinspection ConstantConditions
+    WeatherFragmentArgs args = WeatherFragmentArgs.fromBundle(getArguments());
+    viewModel.loadSkiResort(args.getId());
   }
 }

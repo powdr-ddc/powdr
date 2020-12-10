@@ -57,11 +57,9 @@
       app:popUpTo="@id/navigation_resort">
 
       <argument
-        android:name="latitude"
-        app:argType="float"/>
-      <argument
-        android:name="longitude"
-        app:argType="float"/>
+        android:name="id"
+        app:argType="java.util.UUID"/>
+
     </action>
   </fragment>
 
@@ -72,10 +70,7 @@
     tools:layout="@layout/fragment_weather">
 
     <argument
-      android:name="latitude"
-      app:argType="float"/>
-    <argument
-      android:name="longitude"
-      app:argType="float"/>
+      android:name="id"
+      app:argType="java.util.UUID"/>
   </fragment>
 </navigation>

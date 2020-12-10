@@ -10,7 +10,7 @@ import java.util.List;
 public class WeatherResponse {
 
   @Expose
-  @SerializedName("temp")
+  @SerializedName("main")
   private Temperature temperature;
 
   @Expose
@@ -28,6 +28,7 @@ public class WeatherResponse {
   @Expose
   private Precipitation snow;
 
+  private Wind wind;
   /**
    * Returns the temperature of a location.
    */
@@ -116,6 +117,14 @@ public class WeatherResponse {
    */
   public void setSnow(Precipitation snow) {
     this.snow = snow;
+  }
+
+  public Wind getWind() {
+    return wind;
+  }
+
+  public void setWind(Wind wind) {
+    this.wind = wind;
   }
 
   /**

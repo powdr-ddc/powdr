@@ -15,6 +15,7 @@ import edu.cnm.deepdive.powdr.service.SkiResortRepository;
 import edu.cnm.deepdive.powdr.service.WeatherRepository;
 import io.reactivex.disposables.CompositeDisposable;
 import java.util.List;
+import java.util.UUID;
 
 public class SkiResortViewModel extends AndroidViewModel implements LifecycleObserver {
 
@@ -39,7 +40,6 @@ public class SkiResortViewModel extends AndroidViewModel implements LifecycleObs
     weather = new MutableLiveData<>();
     throwable = new MutableLiveData<>();
     pending = new CompositeDisposable();
-    loadSkiResort();
     loadSkiResorts();
     loadFavoriteSkiResorts();
   }
@@ -79,10 +79,10 @@ public class SkiResortViewModel extends AndroidViewModel implements LifecycleObs
     );
   }
 
-  public void loadSkiResort() {
+  public void loadSkiResort(UUID id) {
     throwable.setValue(null);
     pending.add(
-        skiResortRepository.get()
+        skiResortRepository.get(id)
         .subscribe(
             skiResort::postValue,
             throwable::postValue
@@ -104,14 +104,14 @@ public class SkiResortViewModel extends AndroidViewModel implements LifecycleObs
   /**
    * Requests the weather forecast for the specified latitude and longitude.
    *
-   * @param metric Metric unit of measurement
+   *
    * @param latitude  Latitude of location
    * @param longitude Longitude of location
    */
-  public void requestWeather(String metric, float latitude, float longitude) {
+  public void requestWeather(double latitude, double longitude) {
     throwable.setValue(null);
     pending.add(
-        weatherRepository.get(metric, latitude, longitude)
+        weatherRepository.get(latitude, longitude)
             .subscribe(
                 weather::postValue,
                 throwable::postValue

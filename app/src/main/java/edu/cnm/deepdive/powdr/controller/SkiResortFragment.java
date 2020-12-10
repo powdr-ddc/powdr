@@ -29,15 +29,14 @@ public class SkiResortFragment extends Fragment {
   }
 
   @Override
-  public void onViewCreated(@NonNull @NotNull View view,
-      @Nullable Bundle savedInstanceState) {
+  public void onViewCreated(@NonNull @NotNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     viewModel = new ViewModelProvider(this).get(SkiResortViewModel.class);
     getLifecycle().addObserver(viewModel);
     viewModel.getSkiResorts().observe(getViewLifecycleOwner(), (skiResorts) -> {
       SkiResortAdapter adapter = new SkiResortAdapter(getContext(), skiResorts, (resort) ->
           Navigation.findNavController(getView()).navigate(SkiResortFragmentDirections.showWeather(
-              (float) resort.getLatitude(), (float) resort.getLongitude())));
+              resort.getSkiResortId())));
       binding.skiResortList.addItemDecoration(
           new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
       binding.skiResortList.setAdapter(adapter);

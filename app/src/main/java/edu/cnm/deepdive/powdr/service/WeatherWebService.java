@@ -1,6 +1,5 @@
 package edu.cnm.deepdive.powdr.service;
 
-import com.google.android.gms.common.api.internal.ApiKey;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import edu.cnm.deepdive.powdr.BuildConfig;
@@ -17,13 +16,9 @@ import retrofit2.http.Query;
 
 public interface WeatherWebService {
 
-  @GET
-  Single<WeatherResponse> getWeather(@Query("key") String apiKey,
-      @Query("num_of_days") int numberOfDays,
+  @GET("weather")
+  Single<WeatherResponse> getWeather(@Query("appid") String apiKey, @Query("units") String units,
       @Query("lat") double latitude, @Query("lon") double longitude);
-
-  @GET("getKey")
-  Single<ApiKey> getApiKey();
 
   // all the things we do in postman, we will implement in the interface
   // going to define all the requests we can send to the webservice
@@ -55,7 +50,7 @@ public interface WeatherWebService {
           .addConverterFactory(GsonConverterFactory.create(gson)) // add converter to retrofit object
           .addCallAdapterFactory(RxJava2CallAdapterFactory.create()) // specifies the connection to reactivex
           .client(client)
-          .baseUrl(BuildConfig.BASE_URL)
+          .baseUrl(BuildConfig.API_BASE_URL)
           .build();
       INSTANCE = retrofit.create(WeatherWebService.class);
     }

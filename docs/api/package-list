@@ -1,0 +1,7 @@
+edu.cnm.deepdive.powdr
+edu.cnm.deepdive.powdr.adapter
+edu.cnm.deepdive.powdr.controller
+edu.cnm.deepdive.powdr.databinding
+edu.cnm.deepdive.powdr.model.dto
+edu.cnm.deepdive.powdr.service
+edu.cnm.deepdive.powdr.viewmodel

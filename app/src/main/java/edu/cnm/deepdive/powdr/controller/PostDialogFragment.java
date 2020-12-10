@@ -20,6 +20,9 @@ import edu.cnm.deepdive.powdr.databinding.FragmentPostDialogBinding;
 import edu.cnm.deepdive.powdr.model.dto.Post;
 import edu.cnm.deepdive.powdr.viewmodel.WallViewModel;
 
+/**
+ * Fragment for the dialog of adding a post upon pressing the floating action button.
+ */
 public class PostDialogFragment extends DialogFragment implements TextWatcher {
 
   private FragmentPostDialogBinding binding;

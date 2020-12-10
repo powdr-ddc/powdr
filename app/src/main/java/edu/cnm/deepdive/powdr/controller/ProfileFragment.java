@@ -8,17 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
-import com.squareup.picasso.Picasso;
 import edu.cnm.deepdive.powdr.R;
 import edu.cnm.deepdive.powdr.databinding.FragmentProfileBinding;
 import edu.cnm.deepdive.powdr.viewmodel.ProfileViewModel;
-import edu.cnm.deepdive.powdr.viewmodel.WallViewModel;
 
+/**
+ * Fragment to inflate the UI for the Profile screen with data obtained from the
+ * {@link ProfileViewModel}.
+ */
 public class ProfileFragment extends Fragment {
 
   private static final int ADD_IMAGE_REQUEST = 1023;

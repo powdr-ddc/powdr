@@ -11,6 +11,9 @@ import edu.cnm.deepdive.powdr.R;
 import edu.cnm.deepdive.powdr.databinding.FragmentChatBinding;
 import edu.cnm.deepdive.powdr.viewmodel.MessageViewModel;
 
+/**
+ * Fragment class to inflate the UI for the messaging that takes place between two users.
+ */
 public class ChatFragment extends Fragment {
 
   private FragmentChatBinding binding;
@@ -34,7 +37,7 @@ public class ChatFragment extends Fragment {
    setupViewModel();
   }
 
-  public void setupViewModel() {
+  private void setupViewModel() {
     messageViewModel = new ViewModelProvider(this).get(MessageViewModel.class);
     getLifecycle().addObserver(messageViewModel);
     binding.receivedBody.setText(R.string.received_message_body);

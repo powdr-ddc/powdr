@@ -6,14 +6,13 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 import edu.cnm.deepdive.powdr.model.dto.Message;
 import edu.cnm.deepdive.powdr.service.MessageRepository;
 import io.reactivex.disposables.CompositeDisposable;
 import java.util.List;
 
 /**
- * View model for Message.
+ * A class for controlling communication between the view and the model.
  */
 public class MessageViewModel extends AndroidViewModel implements LifecycleObserver {
 
@@ -36,6 +35,7 @@ public class MessageViewModel extends AndroidViewModel implements LifecycleObser
   public LiveData<List<Message>> getMessages() {
     return messages;
   }
+
   public MutableLiveData<Throwable> getThrowable() {
     return throwable;
   }

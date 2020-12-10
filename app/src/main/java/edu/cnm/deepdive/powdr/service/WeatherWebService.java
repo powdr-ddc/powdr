@@ -14,6 +14,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
+/**
+ * Web service interface to handle REST endpoints from the OpenWeather API
+ */
 public interface WeatherWebService {
 
   @GET("weather")

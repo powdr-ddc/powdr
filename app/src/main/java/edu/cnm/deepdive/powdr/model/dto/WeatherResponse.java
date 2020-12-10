@@ -398,6 +398,7 @@ public class WeatherResponse {
    * Class that contains the attributes of precipitation from the API.
    */
   public static class Precipitation {
+
     @Expose
     @SerializedName("1h")
     private float oneHour;

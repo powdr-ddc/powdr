@@ -29,4 +29,9 @@
   <string name="sent_message_body">Ooh yikes, yeah I\'m going through a tunnel right now, can\'t hear you. Good Luck\!</string>
   <string name="received_body2">… gee, thanks</string>
   <string name="submit">Submit</string>
+  <string name="temp_symbol">F</string>
+  <string name="wind_speed">Wind Speed:</string>
+  <string name="snowfall">Snowfall:</string>
+  <string name="one_hour">One Hour:</string>
+  <string name="three_hours">Three hours:</string>
 </resources>

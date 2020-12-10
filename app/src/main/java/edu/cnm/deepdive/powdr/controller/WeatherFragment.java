@@ -47,6 +47,10 @@ public class WeatherFragment extends Fragment {
       binding.currentTemp.setText(String.valueOf(weather.getTemperature().getCurrent()));
       String iconUrl = String.format(BuildConfig.ICON_URL_PATTERN, weather.getWeather().get(0).getIcon());
       Picasso.get().load(iconUrl).into(binding.weatherIcon);
+      binding.currentWeather.setText(weather.getWeather().get(0).getDescription());
+      binding.windSpeedValue.setText(String.valueOf(weather.getWind().getSpeed()));
+//      binding.snowfallOneHourValue.setText(String.valueOf(weather.getSnow().getOneHour()));
+//      binding.snowfallThreeHourValue.setText(String.valueOf(weather.getSnow().getThreeHour()));
     });
     //noinspection ConstantConditions
     WeatherFragmentArgs args = WeatherFragmentArgs.fromBundle(getArguments());

@@ -14,6 +14,20 @@
     android:orientation="horizontal"
     app:layout_constraintGuide_percent="0.5"/>
 
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/vertical_guideline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.6"/>
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/vertical_left_guideline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.1"/>
+
   <TextView
     android:id="@+id/ski_resort_name"
     android:layout_width="0dp"
@@ -26,20 +40,6 @@
     android:textAlignment="center"
     tools:text="Angel Fire Resort"/>
 
-  <TextView
-    android:id="@+id/current_day"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/half_margin"
-    android:padding="@dimen/half_margin"
-    android:textAlignment="center"
-    android:textSize="@dimen/current_day"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/ski_resort_name"
-    app:layout_constraintBottom_toTopOf="@id/weather_icon"
-    tools:text="Sunday"/>
-
   <ImageView
     android:id="@+id/weather_icon"
     android:layout_width="0dp"
@@ -50,22 +50,30 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toBottomOf="@id/ski_resort_name"
-    app:layout_constraintBottom_toTopOf="@id/horizontal_guideline"
-    app:layout_constraintWidth_percent="0.75"
-    android:contentDescription="@string/weather_icon"
-    android:src="@drawable/ic_weather"/>
+    app:layout_constraintWidth_percent="0.5"
+    android:contentDescription="@string/weather_icon"/>
 
   <TextView
     android:id="@+id/current_temp"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintEnd_toStartOf="@id/vertical_guideline"
     app:layout_constraintTop_toBottomOf="@id/weather_icon"
     android:layout_margin="@dimen/half_margin"
     android:textSize="48sp"
     android:textAlignment="center"
-    tools:text="34 F"/>
+    tools:text="34"/>
+
+  <TextView
+    android:id="@+id/temp_symbol"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toEndOf="@id/current_temp"
+    app:layout_constraintTop_toBottomOf="@id/weather_icon"
+    android:layout_margin="8dp"
+    android:textSize="48sp"
+    android:text="@string/temp_symbol"/>
+
 
   <TextView
     android:id="@+id/current_weather"
@@ -79,15 +87,73 @@
     android:textAlignment="center"
     tools:text="Sunny"/>
 
-  <ListView
-    android:id="@+id/weather_report"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:orientation="horizontal"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/horizontal_guideline"
-    app:layout_constraintBottom_toBottomOf="parent"
-    tools:listitem="@layout/item_weather_report"/>
+  <TextView
+    android:id="@+id/wind_speed"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="24sp"
+    android:layout_marginTop="48dp"
+    app:layout_constraintTop_toBottomOf="@id/current_weather"
+    app:layout_constraintStart_toStartOf="@id/vertical_left_guideline"
+    android:text="@string/wind_speed"/>
+
+  <TextView
+    android:id="@+id/wind_speed_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="48dp"
+    app:layout_constraintStart_toEndOf="@id/vertical_guideline"
+    app:layout_constraintTop_toBottomOf="@id/current_weather"
+    android:textSize="24sp"
+    tools:text="32"/>
+
+  <TextView
+    android:id="@+id/snowfall"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="24sp"
+    android:layout_marginTop="48dp"
+    android:text="@string/snowfall"
+    app:layout_constraintStart_toStartOf="@id/vertical_left_guideline"
+    app:layout_constraintTop_toBottomOf="@id/wind_speed"/>
+
+  <TextView
+    android:id="@+id/snowfall_one_hour"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="24sp"
+    android:text="@string/one_hour"
+    android:layout_marginStart="@dimen/full_margin"
+    app:layout_constraintStart_toStartOf="@id/vertical_left_guideline"
+    app:layout_constraintTop_toBottomOf="@id/snowfall"/>
+
+  <TextView
+    android:id="@+id/snowfall_one_hour_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toEndOf="@id/vertical_guideline"
+    app:layout_constraintTop_toBottomOf="@id/snowfall"
+    android:textSize="24sp"
+    tools:text="32"/>
+
+  <TextView
+    android:id="@+id/snowfall_three_hour"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="24sp"
+    android:text="@string/three_hours"
+    android:layout_marginStart="@dimen/full_margin"
+    app:layout_constraintStart_toStartOf="@id/vertical_left_guideline"
+    app:layout_constraintTop_toBottomOf="@id/snowfall_one_hour"/>
+
+  <TextView
+    android:id="@+id/snowfall_three_hour_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toEndOf="@id/vertical_guideline"
+    app:layout_constraintTop_toBottomOf="@id/snowfall_one_hour"
+    android:textSize="24sp"
+    tools:text="32"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

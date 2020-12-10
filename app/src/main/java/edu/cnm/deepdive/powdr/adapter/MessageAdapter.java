@@ -13,7 +13,8 @@ import java.util.List;
 import org.jetbrains.annotations.NotNull;
 
 /**
- *
+ * Adapter class to convert message objects from the database to be displayed by the
+ * {@link edu.cnm.deepdive.powdr.controller.ChatFragment}.
  */
 public class MessageAdapter extends RecyclerView.Adapter<Holder> {
 

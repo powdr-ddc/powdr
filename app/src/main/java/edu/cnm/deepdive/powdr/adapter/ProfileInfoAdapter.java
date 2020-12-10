@@ -10,6 +10,9 @@ import edu.cnm.deepdive.powdr.databinding.ItemProfileInfoBinding;
 import edu.cnm.deepdive.powdr.model.dto.User;
 import java.util.List;
 
+/**
+ * Adapter to convert {@link User} information to the {@link edu.cnm.deepdive.powdr.controller.ProfileFragment}.
+ */
 public class ProfileInfoAdapter extends RecyclerView.Adapter<Holder> {
 
   private final Context context;

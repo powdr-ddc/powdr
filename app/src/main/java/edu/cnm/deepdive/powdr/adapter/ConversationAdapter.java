@@ -11,6 +11,10 @@ import edu.cnm.deepdive.powdr.databinding.ItemConversationBinding;
 import edu.cnm.deepdive.powdr.model.dto.Message;
 import java.util.List;
 
+/**
+ * Adapter class to convert message objects from the database to be displayed by the
+ * {@link edu.cnm.deepdive.powdr.controller.ConversationsFragment}.
+ */
 public class ConversationAdapter extends RecyclerView.Adapter<Holder> {
 
   private final Context context;

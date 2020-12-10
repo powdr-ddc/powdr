@@ -79,6 +79,9 @@ public interface PowdrWebService {
   @GET("messages")
   Single<List<Message>> getMessages(@Header("Authorization") String bearerToken);
 
+  /**
+   * Returns a singleton instance of the PowdrWebService.
+   */
   static PowdrWebService getInstance() {
     return InstanceHolder.INSTANCE;
   }

@@ -4,6 +4,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import java.util.UUID;
 
+/**
+ * Data transfer object to communicate with the server side.
+ */
 // TODO Make any additions to turn this into an entity class if appropriate.
 public class User {
 

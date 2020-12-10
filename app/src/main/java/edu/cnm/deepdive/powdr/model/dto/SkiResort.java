@@ -3,6 +3,9 @@ package edu.cnm.deepdive.powdr.model.dto;
 import com.google.gson.annotations.Expose;
 import java.util.UUID;
 
+/**
+ * Data transfer object to communicate with the server side.
+ */
 public class SkiResort {
 
   @Expose

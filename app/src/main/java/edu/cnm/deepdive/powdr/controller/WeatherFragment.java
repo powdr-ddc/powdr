@@ -14,6 +14,9 @@ import edu.cnm.deepdive.powdr.databinding.FragmentWeatherBinding;
 import edu.cnm.deepdive.powdr.viewmodel.SkiResortViewModel;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Inflates the UI for the weather screen.
+ */
 public class WeatherFragment extends Fragment {
 
   private SkiResortViewModel viewModel;

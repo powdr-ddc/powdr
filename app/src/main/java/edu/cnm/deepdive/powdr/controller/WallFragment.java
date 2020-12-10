@@ -21,6 +21,9 @@ import edu.cnm.deepdive.powdr.databinding.FragmentWallBinding;
 import edu.cnm.deepdive.powdr.viewmodel.WallViewModel;
 import java.util.Collections;
 
+/**
+ * Inflates the UI for the wall screen.
+ */
 public class WallFragment extends Fragment {
 
   private WallViewModel wallViewModel;

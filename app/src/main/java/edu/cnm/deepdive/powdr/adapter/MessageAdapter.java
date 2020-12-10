@@ -1,21 +1,20 @@
 package edu.cnm.deepdive.powdr.adapter;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import edu.cnm.deepdive.powdr.R;
 import edu.cnm.deepdive.powdr.adapter.MessageAdapter.Holder;
-import edu.cnm.deepdive.powdr.adapter.SkiResortAdapter.OnResortClickListener;
 import edu.cnm.deepdive.powdr.databinding.ItemConversationBinding;
-import edu.cnm.deepdive.powdr.databinding.ItemSkiResortBinding;
 import edu.cnm.deepdive.powdr.model.dto.Message;
-import edu.cnm.deepdive.powdr.model.dto.SkiResort;
 import java.util.List;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ *
+ */
 public class MessageAdapter extends RecyclerView.Adapter<Holder> {
 
   private final Context context;

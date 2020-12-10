@@ -11,6 +11,12 @@ import edu.cnm.deepdive.powdr.model.dto.SkiResort;
 import java.util.List;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Adapter to attach the list of ski resorts to the RecyclerView in the
+ * {@link edu.cnm.deepdive.powdr.controller.SkiResortFragment} and open the proceeding
+ * {@link edu.cnm.deepdive.powdr.controller.WeatherFragment} for the respective {@link SkiResort}
+ * chosen.
+ */
 public class SkiResortAdapter extends RecyclerView.Adapter<Holder> {
 
   private final Context context;

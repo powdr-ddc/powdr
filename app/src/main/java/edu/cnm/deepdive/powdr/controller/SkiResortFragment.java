@@ -16,6 +16,11 @@ import edu.cnm.deepdive.powdr.databinding.FragmentSkiResortBinding;
 import edu.cnm.deepdive.powdr.viewmodel.SkiResortViewModel;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Fragment to display the UI for the RecyclerView containing the list of ski resorts obtained from
+ * the database, as well as navigate to the {@link WeatherFragment} to display the weather stats
+ * for the selected ski resort.
+ */
 public class SkiResortFragment extends Fragment {
 
   private FragmentSkiResortBinding binding;

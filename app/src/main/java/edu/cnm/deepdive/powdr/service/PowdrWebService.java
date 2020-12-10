@@ -31,7 +31,7 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
- * For handling REST endpoints from servers.
+ * For handling REST endpoints from the server side API of Powdr.
  */
 public interface PowdrWebService {
 

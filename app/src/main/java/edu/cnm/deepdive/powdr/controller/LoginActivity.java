@@ -11,8 +11,11 @@ import edu.cnm.deepdive.powdr.R;
 import edu.cnm.deepdive.powdr.databinding.ActivityLoginBinding;
 import edu.cnm.deepdive.powdr.service.GoogleSignInService;
 import edu.cnm.deepdive.powdr.service.UserRepository;
-// import edu.cnm.deepdive.powdr.service.UserRepository;
 
+/**
+ * Activity to handle logging in through the Google Sign In Service before switching to the
+ * {@link NavigationActivity}.
+ */
 public class LoginActivity extends AppCompatActivity {
 
   private static final int LOGIN_REQUEST_CODE = 1000;

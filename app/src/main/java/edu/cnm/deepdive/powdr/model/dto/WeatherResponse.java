@@ -119,10 +119,17 @@ public class WeatherResponse {
     this.snow = snow;
   }
 
+  /**
+   * Returns the wind stats of a location.
+   */
   public Wind getWind() {
     return wind;
   }
 
+  /**
+   * Sets the wind stats of a location.
+   * @param wind Wind stats
+   */
   public void setWind(Wind wind) {
     this.wind = wind;
   }

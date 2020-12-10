@@ -8,14 +8,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener;
-import edu.cnm.deepdive.powdr.R;
 import edu.cnm.deepdive.powdr.adapter.PostAdapter;
 import edu.cnm.deepdive.powdr.databinding.FragmentWallBinding;
 import edu.cnm.deepdive.powdr.viewmodel.WallViewModel;
@@ -51,7 +48,7 @@ public class WallFragment extends Fragment {
     setupViews();
   }
 
-  public void setupViews() {
+  private void setupViews() {
     //noinspection ConstantConditions
     binding.createPostFab.setOnClickListener((view) -> Navigation.findNavController(getView())
     .navigate(WallFragmentDirections.openDialog()));
